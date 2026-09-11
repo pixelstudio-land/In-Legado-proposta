@@ -2,12 +2,10 @@
 
 Landing page de proposta comercial exclusiva para Leonardo — Plataforma de Formulários Conversacionais desenvolvida pela Pixel Studio.
 
-## Antes de subir para produção
+## Contato Configurado
 
-Substitua os dois placeholders no `index.html`:
-
-- `55SEUNUMERO` → seu número com DDI, ex: `5511999999999`
-- `SEUEMAIL@email.com` → seu e-mail de contato
+- **WhatsApp:** `+55 (11) 91339-3797`
+- **E-mail:** `contato@pixelstudio.com`
 
 ## GitHub Pages
 
