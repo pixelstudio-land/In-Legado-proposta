@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Proposta Exclusiva — Plataforma de Formulários Conversacionais | Pixel Studio</title>
+  <meta name="description" content="Proposta exclusiva para Leonardo — Plataforma de formulários conversacionais proprietária." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #07070E; --bg2: #0D0D1A; --gold: #E8A020; --gold2: #FFB740;
+      --gold-dim: rgba(232,160,32,0.12); --red: #FF4D4D; --white: #FFFFFF;
+      --muted: #8888A8; --border: rgba(255,255,255,0.07);
+      --card: rgba(255,255,255,0.04); --card-hov: rgba(255,255,255,0.07);
+      --radius: 16px; --glow-gold: 0 0 40px rgba(232,160,32,0.25);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--white); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    .tag { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); border: 1px solid rgba(232,160,32,.3); background: var(--gold-dim); padding: 6px 14px; border-radius: 100px; }
+    .tag::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); animation: pulse-dot 2s ease-in-out infinite; }
+    @keyframes pulse-dot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.7)} }
+    h1,h2,h3 { font-family: 'Playfair Display', serif; line-height: 1.15; }
+    .section-title { font-size: clamp(2rem,4vw,3rem); font-weight: 700; margin-bottom: 16px; }
+    .section-sub { font-size: 17px; color: var(--muted); line-height: 1.7; max-width: 600px; }
+    .gold { color: var(--gold); }
+    .fade-up { opacity: 0; transform: translateY(32px); transition: opacity .7s ease, transform .7s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+    .fd1 { transition-delay: .1s; } .fd2 { transition-delay: .2s; } .fd3 { transition-delay: .3s; } .fd4 { transition-delay: .4s; }
+
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 999; padding: 18px 0; background: rgba(7,7,14,.88); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); transition: box-shadow .3s; }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { font-family: 'Playfair Display',serif; font-size: 18px; font-weight: 700; color: var(--white); text-decoration: none; }
+    .nav-logo span { color: var(--gold); }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a { font-size: 14px; font-weight: 500; color: var(--muted); text-decoration: none; transition: color .2s; }
+    .nav-links a:hover { color: var(--white); }
+    .btn { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; padding: 12px 22px; border-radius: 100px; border: none; cursor: pointer; text-decoration: none; transition: all .25s; }
+    .btn-gold { background: linear-gradient(135deg,var(--gold),var(--gold2)); color: #0A0700; box-shadow: 0 4px 20px rgba(232,160,32,.4); }
+    .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(232,160,32,.5); }
+    .btn-outline { background: transparent; color: var(--white); border: 1px solid var(--border); }
+    .btn-outline:hover { background: var(--card); }
+    .btn-lg { padding: 16px 32px; font-size: 16px; }
+    .btn-xl { padding: 18px 40px; font-size: 17px; }
+    @media(max-width:768px) { .nav-links { display: none; } }
+
+    /* HERO */
+    #hero { position: relative; min-height: 100vh; display: flex; align-items: center; padding: 120px 0 80px; overflow: hidden; }
+    .orb { position: absolute; border-radius: 50%; filter: blur(120px); pointer-events: none; z-index: 0; }
+    .orb-1 { width: 600px; height: 600px; background: radial-gradient(circle,rgba(232,160,32,.18),transparent 70%); top: -100px; left: -200px; animation: float 8s ease-in-out infinite; }
+    .orb-2 { width: 500px; height: 500px; background: radial-gradient(circle,rgba(74,143,255,.12),transparent 70%); bottom: -100px; right: -150px; animation: float 10s ease-in-out infinite reverse; }
+    @keyframes float { 0%,100%{transform:translateY(0) scale(1)} 50%{transform:translateY(-30px) scale(1.05)} }
+    .hero-content { position: relative; z-index: 1; max-width: 820px; }
+    .hero-tag { margin-bottom: 28px; }
+    .hero-title { font-size: clamp(2.8rem,6vw,5rem); font-weight: 900; line-height: 1.1; margin-bottom: 24px; }
+    .hero-title .accent { display: block; background: linear-gradient(135deg,var(--gold),var(--gold2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .hero-sub { font-size: 19px; color: var(--muted); line-height: 1.75; max-width: 620px; margin-bottom: 40px; }
+    .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 60px; }
+    .hero-proof { display: flex; gap: 40px; flex-wrap: wrap; }
+    .proof-val { font-family: 'Playfair Display',serif; font-size: 2.4rem; font-weight: 700; line-height: 1; }
+    .proof-val span { color: var(--gold); }
+    .proof-lbl { font-size: 13px; color: var(--muted); margin-top: 4px; }
+    .scroll-hint { position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 8px; color: var(--muted); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; animation: sb 2s ease-in-out infinite; }
+    .scroll-line { width: 1px; height: 48px; background: linear-gradient(to bottom,var(--gold),transparent); }
+    @keyframes sb { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(8px)} }
+
+    /* DIVIDER */
+    .divider { height: 1px; background: linear-gradient(90deg,transparent,var(--border),transparent); }
+
+    /* CREDIBILIDADE */
+    #cred { padding: 100px 0; background: var(--bg2); }
+    .cred-hdr { text-align: center; margin-bottom: 64px; }
+    .cred-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); gap: 24px; margin-bottom: 56px; }
+    .cred-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px 28px; text-align: center; transition: all .3s; }
+    .cred-card:hover { background: var(--card-hov); border-color: rgba(232,160,32,.25); transform: translateY(-4px); box-shadow: var(--glow-gold); }
+    .cred-num { font-family: 'Playfair Display',serif; font-size: 2.8rem; font-weight: 700; background: linear-gradient(135deg,var(--gold),var(--gold2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1; margin-bottom: 8px; }
+    .cred-desc { font-size: 14px; color: var(--muted); line-height: 1.5; }
+    .cred-quote { background: var(--card); border: 1px solid var(--border); border-left: 3px solid var(--gold); border-radius: var(--radius); padding: 32px 36px; max-width: 720px; margin: 0 auto; font-size: 17px; line-height: 1.7; color: #C8C8E0; font-style: italic; }
+    .cred-quote strong { color: var(--white); font-style: normal; }
+    .cred-quote cite { display: block; margin-top: 16px; font-size: 13px; font-style: normal; color: var(--muted); }
+
+    /* PRODUTO */
+    #produto { padding: 100px 0; }
+    .feat-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(300px,1fr)); gap: 24px; }
+    .feat-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px; transition: all .3s; }
+    .feat-card:hover { background: var(--card-hov); border-color: rgba(255,255,255,.15); transform: translateY(-4px); }
+    .feat-icon { width: 48px; height: 48px; background: var(--gold-dim); border: 1px solid rgba(232,160,32,.2); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 20px; }
+    .feat-title { font-size: 17px; font-weight: 600; margin-bottom: 10px; }
+    .feat-desc { font-size: 14px; color: var(--muted); line-height: 1.65; }
+
+    /* MERCADO */
+    #mercado { padding: 100px 0; background: var(--bg2); }
+    .mkt-box { max-width: 860px; margin: 0 auto; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+    .mkt-box-hdr { padding: 24px 36px; background: rgba(232,160,32,.06); border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    .mkt-box-hdr h3 { font-family: 'Inter',sans-serif; font-size: 15px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; }
+    table { width: 100%; border-collapse: collapse; }
+    th { padding: 16px 24px; text-align: left; font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--border); }
+    td { padding: 16px 24px; font-size: 15px; border-bottom: 1px solid var(--border); }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: rgba(255,255,255,.02); }
+    .hl-row td { background: rgba(232,160,32,.05); }
+    .hl-row td:first-child { border-left: 2px solid var(--gold); }
+    .badge { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 100px; letter-spacing: .06em; text-transform: uppercase; }
+    .b-green { background: rgba(0,200,100,.15); color: #00C864; border: 1px solid rgba(0,200,100,.25); }
+    .b-gold { background: var(--gold-dim); color: var(--gold); border: 1px solid rgba(232,160,32,.3); }
+    .b-red { background: rgba(255,77,77,.12); color: var(--red); border: 1px solid rgba(255,77,77,.25); }
+    .price-gold { color: var(--gold); font-weight: 700; }
+
+    /* PLANOS */
+    #planos { padding: 100px 0; }
+    .planos-hdr { text-align: center; margin-bottom: 20px; }
+    .planos-intro { text-align: center; max-width: 640px; margin: 0 auto 64px; font-size: 16px; color: var(--muted); line-height: 1.7; }
+    .planos-intro strong { color: var(--white); }
+    .planos-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(240px,1fr)); gap: 24px; align-items: start; }
+    .plano { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 36px 28px; position: relative; transition: all .3s; }
+    .plano:hover { transform: translateY(-6px); }
+    .plano.popular { border-color: rgba(232,160,32,.45); background: rgba(232,160,32,.04); box-shadow: var(--glow-gold); transform: scale(1.03); }
+    .plano.popular:hover { transform: scale(1.03) translateY(-6px); }
+    .plano.urgente { border-color: rgba(255,77,77,.4); background: rgba(255,77,77,.04); }
+    .plano.urgente:hover { box-shadow: 0 0 40px rgba(255,77,77,.2); }
+    .plano-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); white-space: nowrap; }
+    .plano-name { font-size: 13px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; }
+    .plano-price { font-family: 'Playfair Display',serif; font-size: 2.6rem; font-weight: 700; color: var(--white); line-height: 1; }
+    .plano-price .cur { font-size: 1.4rem; font-weight: 400; color: var(--muted); vertical-align: top; margin-top: 6px; display: inline-block; }
+    .plano-period { font-size: 14px; color: var(--muted); margin-top: 4px 0 8px; }
+    .plano-sep { font-size: 13px; color: var(--muted); padding: 8px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin: 16px 0; }
+    .plano-sep strong { color: var(--gold); }
+    .plano-desc { font-size: 14px; color: var(--muted); line-height: 1.65; margin-bottom: 24px; }
+    .plano-items { list-style: none; margin-bottom: 32px; display: flex; flex-direction: column; gap: 10px; }
+    .plano-items li { font-size: 14px; color: #B0B0C8; display: flex; align-items: flex-start; gap: 10px; }
+    .plano-items li::before { content: '✓'; color: var(--gold); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+    .plano-items li.neg::before { content: '✗'; color: var(--muted); }
+    .plano-items li.neg { color: var(--muted); }
+    .btn-plan-gold { width: 100%; padding: 14px; background: linear-gradient(135deg,var(--gold),var(--gold2)); color: #0A0700; font-weight: 700; font-size: 15px; border: none; border-radius: 12px; cursor: pointer; text-decoration: none; display: block; text-align: center; transition: all .25s; box-shadow: 0 4px 20px rgba(232,160,32,.3); }
+    .btn-plan-gold:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(232,160,32,.5); }
+    .btn-plan-out { width: 100%; padding: 14px; background: transparent; color: var(--white); font-weight: 600; font-size: 15px; border: 1px solid var(--border); border-radius: 12px; cursor: pointer; text-decoration: none; display: block; text-align: center; transition: all .25s; }
+    .btn-plan-out:hover { background: var(--card); border-color: rgba(255,255,255,.2); }
+    .btn-plan-red { width: 100%; padding: 14px; background: linear-gradient(135deg,#FF4D4D,#FF6B35); color: var(--white); font-weight: 700; font-size: 15px; border: none; border-radius: 12px; cursor: pointer; text-decoration: none; display: block; text-align: center; transition: all .25s; box-shadow: 0 4px 20px rgba(255,77,77,.3); }
+    .btn-plan-red:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(255,77,77,.5); }
+    .strike { font-size: 1.1rem; text-decoration: line-through; color: var(--muted); font-weight: 400; display: block; margin-bottom: 4px; }
+    .urgency-note { font-size: 12px; text-align: center; color: var(--red); margin-top: 12px; font-weight: 600; letter-spacing: .06em; }
+    .mkt-note { font-size: 12px; text-align: center; color: var(--muted); margin-top: 10px; }
+    .price-red { color: #FF8C8C; }
+    .cur-red { color: var(--red) !important; }
+
+    /* URGENCIA */
+    #urgencia { padding: 80px 0; background: var(--bg2); }
+    .urg-box { max-width: 780px; margin: 0 auto; text-align: center; }
+    .urg-title { font-size: clamp(1.8rem,3.5vw,2.6rem); font-weight: 700; margin-bottom: 20px; }
+    .urg-sub { font-size: 17px; color: var(--muted); line-height: 1.7; margin-bottom: 40px; }
+    .urg-pills { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 40px; }
+    .urg-pill { display: flex; align-items: center; gap: 10px; background: var(--card); border: 1px solid var(--border); border-radius: 100px; padding: 10px 20px; font-size: 14px; font-weight: 500; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+
+    /* FAQ */
+    #faq { padding: 100px 0; }
+    .faq-hdr { text-align: center; margin-bottom: 60px; }
+    .faq-list { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+    .faq-item { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+    .faq-q { padding: 22px 28px; font-size: 16px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; transition: background .2s; }
+    .faq-q:hover { background: var(--card-hov); }
+    .faq-ico { width: 28px; height: 28px; border-radius: 50%; background: var(--gold-dim); border: 1px solid rgba(232,160,32,.25); display: flex; align-items: center; justify-content: center; color: var(--gold); font-size: 18px; flex-shrink: 0; transition: transform .3s; }
+    .faq-item.open .faq-ico { transform: rotate(45deg); }
+    .faq-ans { max-height: 0; overflow: hidden; transition: max-height .4s ease; }
+    .faq-item.open .faq-ans { max-height: 400px; }
+    .faq-ans-inner { padding: 20px 28px 24px; font-size: 15px; color: var(--muted); line-height: 1.75; border-top: 1px solid var(--border); }
+    .faq-ans-inner strong { color: var(--white); }
+
+    /* CTA */
+    #cta { padding: 120px 0; position: relative; overflow: hidden; text-align: center; }
+    .cta-orb { position: absolute; width: 800px; height: 800px; background: radial-gradient(circle,rgba(232,160,32,.1),transparent 65%); top: 50%; left: 50%; transform: translate(-50%,-50%); pointer-events: none; }
+    .cta-inner { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; }
+    .cta-title { font-size: clamp(2rem,4vw,3.2rem); font-weight: 700; margin-bottom: 20px; }
+    .cta-sub { font-size: 18px; color: var(--muted); line-height: 1.7; margin-bottom: 40px; }
+    .cta-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .wpp { display: inline-flex; align-items: center; gap: 10px; background: #25D366; color: #fff; padding: 18px 36px; border-radius: 100px; font-size: 17px; font-weight: 700; text-decoration: none; transition: all .25s; box-shadow: 0 4px 24px rgba(37,211,102,.35); }
+    .wpp:hover { transform: translateY(-2px); box-shadow: 0 8px 36px rgba(37,211,102,.5); }
+
+    /* FOOTER */
+    footer { padding: 36px 0; border-top: 1px solid var(--border); text-align: center; font-size: 13px; color: var(--muted); }
+    footer strong { color: var(--white); }
+
+    /* PROGRESS */
+    #progress { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg,var(--gold),var(--gold2)); z-index: 9999; width: 0; transition: width .1s linear; }
+
+    @media(max-width:768px) {
+      .planos-grid { grid-template-columns: 1fr; }
+      .plano.popular { transform: scale(1); }
+      .hero-proof { gap: 24px; }
+      .cred-grid { grid-template-columns: repeat(2,1fr); }
+      .hero-ctas, .cta-btns { flex-direction: column; align-items: flex-start; }
+      .cta-btns { align-items: center; }
+      td, th { padding: 12px 14px; font-size: 13px; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="container nav-inner">
+    <a href="#hero" class="nav-logo">Pixel<span>Studio</span></a>
+    <ul class="nav-links">
+      <li><a href="#produto">O Produto</a></li>
+      <li><a href="#planos">Planos</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <a href="#cta" class="btn btn-gold">Quero Fechar →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="tag hero-tag fade-up">Proposta exclusiva · Setembro 2026</div>
+      <h1 class="hero-title fade-up fd1">
+        Leonardo,<br>
+        <span class="accent">você me pediu isso três vezes.</span>
+      </h1>
+      <p class="hero-sub fade-up fd2">
+        Na quarta, eu decidi construir.<br>
+        E trouxe as condições para você ser parte disso — antes de qualquer outra pessoa.
+      </p>
+      <div class="hero-ctas fade-up fd3">
+        <a href="#planos" class="btn btn-gold btn-lg">Ver as opções de aquisição</a>
+        <a href="#produto" class="btn btn-outline btn-lg">O que é o sistema</a>
+      </div>
+      <div class="hero-proof fade-up fd4">
+        <div>
+          <div class="proof-val">R$<span>272k</span></div>
+          <div class="proof-lbl">em vendas gerenciadas<br>pelo CRM que construímos</div>
+        </div>
+        <div>
+          <div class="proof-val"><span>25k+</span></div>
+          <div class="proof-lbl">leads no banco<br>das suas lojas</div>
+        </div>
+        <div>
+          <div class="proof-val"><span>9</span></div>
+          <div class="proof-lbl">empresas operando<br>o sistema hoje</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint"><div class="scroll-line"></div>scroll</div>
+</section>
+<div class="divider"></div>
+
+<!-- CREDIBILIDADE -->
+<section id="cred">
+  <div class="container">
+    <div class="cred-hdr">
+      <div class="tag fade-up">Você já conhece meu trabalho</div>
+      <h2 class="section-title fade-up fd1">Não estou te pedindo<br>para confiar em promessas.</h2>
+      <p class="section-sub fade-up fd2" style="margin:16px auto 0;">
+        Você viu o Chat Legado ser construído do zero. Sabe o que entra numa plataforma real.<br>
+        Os números abaixo são do seu próprio banco de dados Supabase.
+      </p>
+    </div>
+    <div class="cred-grid">
+      <div class="cred-card fade-up">
+        <div class="cred-num">R$272k</div>
+        <div class="cred-desc">Fechamentos rastreados pela plataforma CRM para a Real Pisos entre Maio e Agosto de 2026.</div>
+      </div>
+      <div class="cred-card fade-up fd1">
+        <div class="cred-num">25.231</div>
+        <div class="cred-desc">Leads com nome real no banco. Sanados, auditados e documentados em Setembro/2026.</div>
+      </div>
+      <div class="cred-card fade-up fd2">
+        <div class="cred-num">9</div>
+        <div class="cred-desc">Contas de clientes ativos com instâncias de WhatsApp e funis de venda próprios.</div>
+      </div>
+      <div class="cred-card fade-up fd3">
+        <div class="cred-num">61</div>
+        <div class="cred-desc">Commits no repositório do CRM. Cada um resolvendo um problema real de operação.</div>
+      </div>
+    </div>
+    <div class="cred-quote fade-up">
+      <p>"O sistema que construímos juntos já provou em produção que funciona. A próxima plataforma que você quer — os formulários conversacionais — tem a mesma base técnica e o mesmo rigor de execução. A diferença agora é que <strong>você pode ser o dono</strong>."</p>
+      <cite>— Julio, Pixel Studio · Setembro de 2026</cite>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<!-- PRODUTO -->
+<section id="produto">
+  <div class="container">
+    <div style="margin-bottom:60px">
+      <div class="tag fade-up">O Produto</div>
+      <h2 class="section-title fade-up fd1">Plataforma de Formulários<br><span class="gold">Conversacionais Proprietária</span></h2>
+      <p class="section-sub fade-up fd2">
+        Pense no Respondi.app ou InLead — mas em português, em reais, com suporte direto, hospedado no seu servidor e com a sua marca. Um formulário que parece uma conversa, que converte mais do que uma página estática e que gera relatórios automáticos para você ou seus clientes.
+      </p>
+    </div>
+    <div class="feat-grid">
+      <div class="feat-card fade-up">
+        <div class="feat-icon">💬</div>
+        <div class="feat-title">Formulários Conversacionais</div>
+        <div class="feat-desc">Uma pergunta por vez, como uma conversa de WhatsApp. Taxa de conclusão até 3x maior que formulários tradicionais.</div>
+      </div>
+      <div class="feat-card fade-up fd1">
+        <div class="feat-icon">⚡</div>
+        <div class="feat-title">Lógica Condicional</div>
+        <div class="feat-desc">Se o usuário responde X, vai para a pergunta A. Se responde Y, vai para B. Formulários inteligentes, sem código.</div>
+      </div>
+      <div class="feat-card fade-up fd2">
+        <div class="feat-icon">📊</div>
+        <div class="feat-title">Dashboard de Respostas</div>
+        <div class="feat-desc">Todas as respostas em um painel limpo. Filtros, exportação CSV, visualizações e métricas de conclusão em tempo real.</div>
+      </div>
+      <div class="feat-card fade-up fd3">
+        <div class="feat-icon">🔗</div>
+        <div class="feat-title">Webhooks e Integrações</div>
+        <div class="feat-desc">Conecta com n8n, Make, Zapier ou qualquer sistema via webhook. Cada resposta pode disparar uma automação.</div>
+      </div>
+      <div class="feat-card fade-up fd1">
+        <div class="feat-icon">🎨</div>
+        <div class="feat-title">Marca 100% Personalizável</div>
+        <div class="feat-desc">Logo, cores, domínio próprio. O usuário final nunca vê "Respondi" ou "Typeform". Vê você.</div>
+      </div>
+      <div class="feat-card fade-up fd2">
+        <div class="feat-icon">📁</div>
+        <div class="feat-title">Multi-tenancy Opcional</div>
+        <div class="feat-desc">Dependendo do plano, você pode revender para seus próprios clientes como uma plataforma white-label completa.</div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<!-- MERCADO -->
+<section id="mercado">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:60px">
+      <div class="tag fade-up">Transparência de mercado</div>
+      <h2 class="section-title fade-up fd1">O que isso custaria<br><span class="gold">no mercado aberto?</span></h2>
+      <p class="section-sub fade-up fd2" style="margin:16px auto 0;">
+        Antes de ver os valores desta proposta, veja o que uma plataforma equivalente custa com outros fornecedores. Essa referência existe para você avaliar se o que estou oferecendo é justo — e por que é.
+      </p>
+    </div>
+    <div class="mkt-box fade-up">
+      <div class="mkt-box-hdr">
+        <h3>Referências de mercado — SaaS de formulários conversacionais</h3>
+        <span class="badge b-gold">Setembro 2026</span>
+      </div>
+      <table>
+        <thead>
+          <tr><th>Fornecedor / Perfil</th><th>Entrega</th><th>Preço Estimado</th><th>Código?</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Agência de software (nacional)</td>
+            <td>MVP completo, 12–20 sem.</td>
+            <td><strong>R$25.000–R$60.000</strong></td>
+            <td><span class="badge b-green">Sim</span></td>
+          </tr>
+          <tr>
+            <td>Freelancer sênior (PJ, remoto)</td>
+            <td>Parcial, 8–16 semanas</td>
+            <td><strong>R$12.000–R$28.000</strong></td>
+            <td><span class="badge b-green">Sim</span></td>
+          </tr>
+          <tr>
+            <td>Respondi.app (assinatura)</td>
+            <td>Plataforma pronta, sem código</td>
+            <td><strong>R$197–R$497/mês</strong></td>
+            <td><span class="badge b-red">Não</span></td>
+          </tr>
+          <tr>
+            <td>Typeform (internacional)</td>
+            <td>Plataforma pronta, em dólar</td>
+            <td><strong>$29–$83 USD/mês</strong></td>
+            <td><span class="badge b-red">Não</span></td>
+          </tr>
+          <tr class="hl-row">
+            <td><strong>Esta proposta — Pixel Studio</strong></td>
+            <td>MVP completo, 6–8 semanas</td>
+            <td class="price-gold"><strong>A partir de R$1.800 setup</strong></td>
+            <td><span class="badge b-gold">Opcional</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<!-- PLANOS -->
+<section id="planos">
+  <div class="container">
+    <div class="planos-hdr">
+      <div class="tag fade-up">Quatro formas de entrar</div>
+      <h2 class="section-title fade-up fd1">Escolha como você quer<br><span class="gold">ter acesso a isso</span></h2>
+    </div>
+    <p class="planos-intro fade-up">
+      O mesmo sistema. Quatro formas diferentes de relação com ele. Desde o acesso mensal simples até a propriedade total do código. <strong>Você decide qual faz mais sentido para o seu negócio.</strong>
+    </p>
+    <div class="planos-grid">
+
+      <!-- PLANO 1 -->
+      <div class="plano fade-up">
+        <div class="plano-name">Acesso Mensal</div>
+        <div class="plano-price"><span class="cur">R$</span>450<span style="font-size:1rem;color:var(--muted);font-weight:400">/mês</span></div>
+        <div class="plano-sep">+ <strong>R$1.800</strong> de setup (uma vez)</div>
+        <div class="plano-desc">Use a plataforma sem se preocupar com infraestrutura. Eu cuido de tudo. Você usa e cresce.</div>
+        <ul class="plano-items">
+          <li>Instância dedicada com sua marca</li>
+          <li>Domínio personalizado configurado</li>
+          <li>Painel de administração completo</li>
+          <li>Suporte técnico direto comigo</li>
+          <li>Updates do roadmap incluídos</li>
+          <li>Cancelamento com 30 dias de aviso</li>
+          <li class="neg">Código-fonte não incluso</li>
+          <li class="neg">Sem direito de revenda</li>
+        </ul>
+        <a href="https://wa.me/55SEUNUMERO?text=Julio%2C%20quero%20o%20Acesso%20Mensal%20da%20proposta." class="btn-plan-out" target="_blank">Quero esse plano</a>
+      </div>
+
+      <!-- PLANO 2 (POPULAR) -->
+      <div class="plano popular fade-up fd1">
+        <div class="plano-badge"><span class="badge b-gold">Mais Escolhido</span></div>
+        <div class="plano-name">Exclusividade de Nicho</div>
+        <div class="plano-price"><span class="cur">R$</span>650<span style="font-size:1rem;color:var(--muted);font-weight:400">/mês</span></div>
+        <div class="plano-sep">+ <strong>R$2.500</strong> de setup (uma vez)</div>
+        <div class="plano-desc">Nenhum concorrente direto do seu segmento usa a plataforma. Você fica sozinho no seu nicho.</div>
+        <ul class="plano-items">
+          <li>Tudo do Acesso Mensal</li>
+          <li><strong style="color:var(--gold)">Exclusividade no seu segmento</strong></li>
+          <li>Nenhum concorrente entra na plataforma</li>
+          <li>Acordo de não-concorrência escrito</li>
+          <li>Prioridade no suporte</li>
+          <li>Relatórios mensais de uso</li>
+          <li class="neg">Código-fonte não incluso</li>
+        </ul>
+        <a href="https://wa.me/55SEUNUMERO?text=Julio%2C%20quero%20a%20Exclusividade%20de%20Nicho." class="btn-plan-gold" target="_blank">Fechar com exclusividade</a>
+      </div>
+
+      <!-- PLANO 3 -->
+      <div class="plano fade-up fd2">
+        <div class="plano-name">Licença Perpétua</div>
+        <div class="plano-price"><span class="cur">R$</span>8.000</div>
+        <div class="plano-period" style="margin-top:4px;margin-bottom:8px">pagamento único · sem mensalidade</div>
+        <div class="plano-sep" style="border-top:1px solid var(--border);margin-top:4px;">Paga uma vez. Usa para sempre.</div>
+        <div class="plano-desc">A hospedagem e infraestrutura ficam por minha conta. Você não precisa se preocupar com mais nada.</div>
+        <ul class="plano-items">
+          <li>Acesso vitalício à plataforma</li>
+          <li>Domínio e hospedagem inclusos</li>
+          <li>Zero mensalidade no futuro</li>
+          <li>Atualizações por 12 meses incluídas</li>
+          <li>Suporte por 6 meses incluído</li>
+          <li class="neg">Código-fonte não incluso</li>
+          <li class="neg">Sem direito de revenda</li>
+        </ul>
+        <a href="https://wa.me/55SEUNUMERO?text=Julio%2C%20quero%20a%20Licen%C3%A7a%20Perp%C3%A9tua." class="btn-plan-out" target="_blank">Quero licença perpétua</a>
+      </div>
+
+      <!-- PLANO 4 (URGENTE) -->
+      <div class="plano urgente fade-up fd3">
+        <div class="plano-badge"><span class="badge b-red">Oferta Especial</span></div>
+        <div class="plano-name">Proprietário Total</div>
+        <span class="strike">R$18.000 (média de mercado)</span>
+        <div class="plano-price price-red"><span class="cur cur-red">R$</span>12.000</div>
+        <div class="plano-period" style="color:var(--red);font-weight:600;margin-top:4px">se fechar esta semana</div>
+        <div class="plano-sep" style="border-color:rgba(255,77,77,.2);margin-top:8px;">50% → <strong style="color:#FF8C8C">R$6.000</strong> antes do primeiro commit</div>
+        <div class="plano-desc">O código-fonte é seu. Hospedar onde quiser, modificar como quiser, revender para outros clientes como quiser. A média de mercado para isso começa em R$18.000. Essa condição é única.</div>
+        <ul class="plano-items">
+          <li><strong style="color:#FF8C8C">Código-fonte completo entregue</strong></li>
+          <li>Documentação técnica completa</li>
+          <li>Direito de revender a outros</li>
+          <li>Hospedar onde quiser</li>
+          <li>Modificar e adaptar livremente</li>
+          <li>3 meses de suporte pós-entrega</li>
+          <li>Deploy e configuração inclusos</li>
+        </ul>
+        <a href="https://wa.me/55SEUNUMERO?text=Julio%2C%20quero%20o%20Propriet%C3%A1rio%20Total%20antes%20que%20expire." class="btn-plan-red" target="_blank">Quero o código — fechar agora</a>
+        <div class="urgency-note">⚡ Preço especial expira junto com essa proposta</div>
+        <div class="mkt-note">Média de mercado: R$18.000 a R$40.000</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<!-- URGENCIA -->
+<section id="urgencia">
+  <div class="container">
+    <div class="urg-box">
+      <div class="tag fade-up" style="margin:0 auto 24px;display:inline-flex">Por que agir agora</div>
+      <h2 class="urg-title fade-up">Esta proposta foi escrita<br>para <span class="gold">você, especificamente.</span></h2>
+      <p class="urg-sub fade-up">
+        Os valores aqui não são os que pratico com novos clientes depois de hoje.<br>
+        Essa condição existe porque existe uma relação de trabalho real — e porque você pediu isso repetidas vezes, o que prova que a demanda é real. Demanda real merece oferta real.
+      </p>
+      <div class="urg-pills fade-up">
+        <div class="urg-pill"><div class="dot"></div>Desconto de R$6.000 no plano proprietário</div>
+        <div class="urg-pill"><div class="dot"></div>Setup do plano mensal 40% abaixo do normal</div>
+        <div class="urg-pill"><div class="dot"></div>Prazo de entrega prioritário</div>
+      </div>
+      <a href="#cta" class="btn btn-gold btn-lg fade-up">Quero garantir as condições →</a>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div class="faq-hdr">
+      <div class="tag fade-up">Perguntas frequentes</div>
+      <h2 class="section-title fade-up fd1">Tudo que você<br>pode estar pensando</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item fade-up">
+        <div class="faq-q">Por que 50% adiantado antes do primeiro commit?<div class="faq-ico">+</div></div>
+        <div class="faq-ans"><div class="faq-ans-inner"><strong>Porque código de software não tem devolução.</strong> Você não compraria um apartamento sem sinal. O adiantamento garante o compromisso dos dois lados — e protege você também, porque me obriga a entregar algo concreto antes de receber a segunda metade. É uma proteção mútua, não desconfiança.</div></div>
+      </div>
+      <div class="faq-item fade-up">
+        <div class="faq-q">Quem hospeda o sistema em cada plano?<div class="faq-ico">+</div></div>
+        <div class="faq-ans"><div class="faq-ans-inner">Nos planos <strong>Mensal e Exclusivo</strong>, eu hospedo e cuido de tudo — servidor, deploy, manutenção. Na <strong>Licença Perpétua</strong>, a hospedagem está inclusa. No plano <strong>Proprietário Total</strong>, você hospeda onde preferir — ou configuro o servidor separado com orçamento à parte.</div></div>
+      </div>
+      <div class="faq-item fade-up">
+        <div class="faq-q">E se eu quiser cancelar o plano mensal?<div class="faq-ico">+</div></div>
+        <div class="faq-ans"><div class="faq-ans-inner">Aviso prévio de <strong>30 dias</strong>. Você exporta todos os dados em CSV. Sem taxa de cancelamento, sem penalidade. A porta de saída está sempre aberta — mas a verdade é que nenhum dos meus clientes ativos quis sair depois do onboarding.</div></div>
+      </div>
+      <div class="faq-item fade-up">
+        <div class="faq-q">Posso pedir funcionalidades específicas?<div class="faq-ico">+</div></div>
+        <div class="faq-ans"><div class="faq-ans-inner"><strong>Sim, em todos os planos.</strong> Nos planos mensais, as atualizações do roadmap chegam incluídas. Features exclusivas têm orçamento à parte. No plano Proprietário, como o código é seu, você pode contratar qualquer desenvolvedor para modificar o que quiser.</div></div>
+      </div>
+      <div class="faq-item fade-up">
+        <div class="faq-q">O sistema já está pronto ou vai ser construído?<div class="faq-ico">+</div></div>
+        <div class="faq-ans"><div class="faq-ans-inner">Construído do zero para você, com stack já validada em produção — a mesma do Chat Legado. O prazo de entrega do MVP funcional é de <strong>6 a 10 semanas</strong>. Você recebe acesso ao repositório durante o desenvolvimento.</div></div>
+      </div>
+      <div class="faq-item fade-up">
+        <div class="faq-q">Se eu comprar o Proprietário, posso revender para outros?<div class="faq-ico">+</div></div>
+        <div class="faq-ans"><div class="faq-ans-inner"><strong>Sim. É exatamente esse o ponto.</strong> No plano Proprietário Total, o código é seu. Você pode criar sua própria plataforma, cobrar mensalidade dos seus clientes, colocar sua marca. A média de mercado para isso começa em R$18.000. Nessa proposta, você entra por R$12.000 — se fechar antes dessa janela fechar.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<!-- CTA FINAL -->
+<section id="cta">
+  <div class="cta-orb"></div>
+  <div class="container">
+    <div class="cta-inner">
+      <div class="tag fade-up" style="margin:0 auto 24px;display:inline-flex">Próximo passo</div>
+      <h2 class="cta-title fade-up">Você já sabe que quer isso.<br><span class="gold">A questão é como.</span></h2>
+      <p class="cta-sub fade-up">
+        Escolha seu plano, manda mensagem, a gente fecha em menos de uma conversa.<br>
+        Sem reunião desnecessária. Só negócio.
+      </p>
+      <div class="cta-btns fade-up">
+        <a href="https://wa.me/55SEUNUMERO?text=Julio%2C%20vi%20a%20proposta%20e%20quero%20conversar%20sobre%20os%20planos." class="wpp" target="_blank">📲 Fechar via WhatsApp</a>
+        <a href="mailto:SEUEMAIL@email.com" class="btn btn-outline btn-xl">Enviar por e-mail</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>Proposta preparada por <strong>Julio · Pixel Studio</strong> — Setembro de 2026. Documento exclusivo e confidencial.</p>
+    <p style="margin-top:8px;font-size:11px;opacity:.5">Esta proposta não representa compromisso financeiro de nenhuma das partes até assinatura de contrato.</p>
+  </div>
+</footer>
+
+<script>
+  // Scroll animations
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+
+  // Progress bar
+  window.addEventListener('scroll', () => {
+    const st = document.documentElement.scrollTop;
+    const dh = document.documentElement.scrollHeight - window.innerHeight;
+    document.getElementById('progress').style.width = (st/dh*100) + '%';
+  });
+
+  // Nav shadow
+  window.addEventListener('scroll', () => {
+    document.getElementById('nav').style.boxShadow = window.scrollY > 60 ? '0 4px 40px rgba(0,0,0,.5)' : 'none';
+  });
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      const open = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if(!open) item.classList.add('open');
+    });
+  });
+
+  // Smooth anchors
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const t = document.querySelector(a.getAttribute('href'));
+      if(t){ e.preventDefault(); window.scrollTo({ top: t.offsetTop - 80, behavior: 'smooth' }); }
+    });
+  });
+</script>
+</body>
+</html>
