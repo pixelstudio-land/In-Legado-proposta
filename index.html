@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Proposta Comercial e Técnica | Plataforma Conversacional Legado</title>
-  <meta name="description" content="Proposta técnica e comercial exclusiva para Leonardo. Unificação da esteira de formulários conversacionais com o ecossistema Chat Legado." />
+  <title>Proposta Tecnica e Comercial | Motor de Captura Legado Performance</title>
+  <meta name="description" content="Proposta exclusiva para Leonardo Chagas. Integracao nativa do topo de funil a Maquina de Visitas Diarias da Legado Performance Digital." />
   <meta name="robots" content="noindex, nofollow" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
       --bg: #07070E;
-      --bg2: #0D0D18;
+      --bg2: #0C0C18;
       --gold: #E8A020;
       --gold2: #FFB740;
       --gold-dim: rgba(232,160,32,0.10);
@@ -24,363 +24,187 @@
       --card: rgba(255,255,255,0.035);
       --card-hov: rgba(255,255,255,0.065);
       --radius: 14px;
-      --glow-gold: 0 0 35px rgba(232,160,32,0.18);
+      --glow-gold: 0 0 40px rgba(232,160,32,0.18);
     }
     html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: var(--bg);
-      color: var(--white);
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-      line-height: 1.6;
-    }
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg); color: var(--white); overflow-x: hidden; -webkit-font-smoothing: antialiased; line-height: 1.6; }
     ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-track { background: var(--bg); }
     ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
     .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
-    
-    .tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: var(--gold);
-      border: 1px solid rgba(232,160,32,.28);
-      background: var(--gold-dim);
-      padding: 6px 14px;
-      border-radius: 100px;
-    }
-    .tag::before {
-      content: '';
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--gold);
-    }
-    
+    .tag { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); border: 1px solid rgba(232,160,32,.28); background: var(--gold-dim); padding: 6px 14px; border-radius: 100px; }
+    .tag::before { content:''; width:6px; height:6px; border-radius:50%; background:var(--gold); }
     h1, h2, h3 { font-family: 'Playfair Display', Georgia, serif; line-height: 1.18; }
-    .section-title { font-size: clamp(2rem, 3.8vw, 2.9rem); font-weight: 700; margin-bottom: 16px; }
-    .section-sub { font-size: 16px; color: var(--muted); line-height: 1.7; max-width: 660px; }
+    .section-title { font-size: clamp(1.9rem, 3.6vw, 2.8rem); font-weight: 700; margin-bottom: 16px; }
+    .section-sub { font-size: 16px; color: var(--muted); line-height: 1.75; max-width: 660px; }
     .gold { color: var(--gold); }
-    
-    .fade-up {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity .65s ease, transform .65s ease;
-    }
-    .fade-up.visible { opacity: 1; transform: translateY(0); }
-    .fd1 { transition-delay: .1s; }
-    .fd2 { transition-delay: .2s; }
-    .fd3 { transition-delay: .3s; }
-    .fd4 { transition-delay: .4s; }
+    .fade-up { opacity:0; transform:translateY(24px); transition:opacity .65s ease, transform .65s ease; }
+    .fade-up.visible { opacity:1; transform:translateY(0); }
+    .fd1 { transition-delay:.1s; } .fd2 { transition-delay:.2s; } .fd3 { transition-delay:.3s; } .fd4 { transition-delay:.4s; }
 
-    /* NAV (SEM LINK DIRETO PARA PLANOS) */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 999;
-      padding: 16px 0;
-      background: rgba(7,7,14,.90);
-      backdrop-filter: blur(18px);
-      border-bottom: 1px solid var(--border);
-      transition: box-shadow .3s;
-    }
-    .nav-inner { display: flex; align-items: center; justify-content: space-between; }
-    .nav-logo { font-family: 'Playfair Display', serif; font-size: 19px; font-weight: 700; color: var(--white); text-decoration: none; }
-    .nav-logo span { color: var(--gold); }
-    .nav-links { display: flex; gap: 28px; list-style: none; }
-    .nav-links a { font-size: 13.5px; font-weight: 500; color: var(--muted); text-decoration: none; transition: color .2s; }
-    .nav-links a:hover { color: var(--white); }
-    
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      font-size: 14px;
-      font-weight: 600;
-      padding: 12px 24px;
-      border-radius: 100px;
-      border: none;
-      cursor: pointer;
-      text-decoration: none;
-      transition: all .25s ease;
-    }
-    .btn-gold {
-      background: linear-gradient(135deg, var(--gold), var(--gold2));
-      color: #0B0802;
-      box-shadow: 0 4px 18px rgba(232,160,32,.35);
-    }
-    .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 8px 26px rgba(232,160,32,.45); }
-    .btn-outline { background: transparent; color: var(--white); border: 1px solid var(--border); }
-    .btn-outline:hover { background: var(--card); border-color: rgba(255,255,255,0.2); }
-    .btn-lg { padding: 15px 30px; font-size: 15.5px; }
-    .btn-xl { padding: 16px 36px; font-size: 16px; }
+    nav { position: fixed; top:0; left:0; right:0; z-index:999; padding: 16px 0; background: rgba(7,7,14,.92); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); transition: box-shadow .3s; }
+    .nav-inner { display:flex; align-items:center; justify-content:space-between; }
+    .nav-logo { font-family:'Playfair Display',serif; font-size:19px; font-weight:700; color:var(--white); text-decoration:none; }
+    .nav-logo span { color:var(--gold); }
+    .nav-links { display:flex; gap:28px; list-style:none; }
+    .nav-links a { font-size:13.5px; font-weight:500; color:var(--muted); text-decoration:none; transition:color .2s; }
+    .nav-links a:hover { color:var(--white); }
+    .btn { display:inline-flex; align-items:center; justify-content:center; gap:8px; font-size:14px; font-weight:600; padding:12px 24px; border-radius:100px; border:none; cursor:pointer; text-decoration:none; transition:all .25s; }
+    .btn-gold { background:linear-gradient(135deg,var(--gold),var(--gold2)); color:#0B0802; box-shadow:0 4px 18px rgba(232,160,32,.3); }
+    .btn-gold:hover { transform:translateY(-2px); box-shadow:0 8px 26px rgba(232,160,32,.4); }
+    .btn-outline { background:transparent; color:var(--white); border:1px solid var(--border); }
+    .btn-outline:hover { background:var(--card); border-color:rgba(255,255,255,0.2); }
+    .btn-lg { padding:15px 30px; font-size:15.5px; }
+    .btn-xl { padding:16px 36px; font-size:16px; }
+    @media(max-width:768px){ .nav-links { display:none; } }
 
-    @media(max-width:768px) {
-      .nav-links { display: none; }
-    }
+    #hero { position:relative; min-height:92vh; display:flex; align-items:center; padding:130px 0 80px; overflow:hidden; }
+    .orb { position:absolute; border-radius:50%; filter:blur(130px); pointer-events:none; z-index:0; }
+    .orb-1 { width:560px; height:560px; background:radial-gradient(circle,rgba(232,160,32,.13),transparent 70%); top:-80px; left:-180px; }
+    .orb-2 { width:460px; height:460px; background:radial-gradient(circle,rgba(74,143,255,.08),transparent 70%); bottom:-60px; right:-130px; }
+    .hero-content { position:relative; z-index:1; max-width:860px; }
+    .hero-tag { margin-bottom:24px; }
+    .hero-title { font-size:clamp(2.5rem,5vw,4.3rem); font-weight:800; line-height:1.1; margin-bottom:22px; }
+    .hero-accent { display:block; background:linear-gradient(135deg,var(--gold),var(--gold2)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+    .hero-sub { font-size:18px; color:var(--muted); line-height:1.78; max-width:700px; margin-bottom:36px; }
+    .hero-ctas { display:flex; gap:14px; flex-wrap:wrap; margin-bottom:52px; }
+    .hero-proof { display:flex; gap:40px; flex-wrap:wrap; }
+    .proof-val { font-family:'Playfair Display',serif; font-size:2.3rem; font-weight:700; line-height:1; }
+    .proof-val span { color:var(--gold); }
+    .proof-lbl { font-size:12.5px; color:var(--muted); margin-top:5px; line-height:1.4; }
 
-    /* HERO */
-    #hero {
-      position: relative;
-      min-height: 94vh;
-      display: flex;
-      align-items: center;
-      padding: 130px 0 80px;
-      overflow: hidden;
-    }
-    .orb { position: absolute; border-radius: 50%; filter: blur(120px); pointer-events: none; z-index: 0; }
-    .orb-1 { width: 550px; height: 550px; background: radial-gradient(circle, rgba(232,160,32,.14), transparent 70%); top: -80px; left: -160px; }
-    .orb-2 { width: 480px; height: 480px; background: radial-gradient(circle, rgba(74,143,255,.09), transparent 70%); bottom: -60px; right: -120px; }
-    .hero-content { position: relative; z-index: 1; max-width: 860px; }
-    .hero-tag { margin-bottom: 24px; }
-    .hero-title { font-size: clamp(2.6rem, 5.2vw, 4.4rem); font-weight: 800; line-height: 1.12; margin-bottom: 22px; }
-    .hero-title .accent {
-      display: block;
-      background: linear-gradient(135deg, var(--gold), var(--gold2));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .hero-sub { font-size: 18px; color: var(--muted); line-height: 1.75; max-width: 680px; margin-bottom: 36px; }
-    .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 50px; }
-    .hero-proof { display: flex; gap: 36px; flex-wrap: wrap; }
-    .proof-val { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 700; line-height: 1; }
-    .proof-val span { color: var(--gold); }
-    .proof-lbl { font-size: 12.5px; color: var(--muted); margin-top: 5px; }
+    .divider { height:1px; background:linear-gradient(90deg,transparent,var(--border),transparent); }
 
-    .divider { height: 1px; background: linear-gradient(90deg, transparent, var(--border), transparent); }
+    #contexto { padding:90px 0; background:var(--bg2); }
+    .contexto-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:40px; }
+    .ctx-box { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:32px; }
+    .ctx-box.active { border-color:rgba(255,77,77,.3); background:rgba(255,30,30,.025); }
+    .ctx-box.target { border-color:rgba(232,160,32,.35); background:rgba(232,160,32,.025); }
+    .ctx-label { font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; margin-bottom:18px; }
+    .ctx-label.red { color:var(--red); }
+    .ctx-label.gold { color:var(--gold); }
+    .ctx-list { list-style:none; display:flex; flex-direction:column; gap:13px; }
+    .ctx-item { display:flex; align-items:flex-start; gap:12px; font-size:14px; color:#C0C0D8; line-height:1.55; }
+    .ctx-dot { width:6px; height:6px; border-radius:50%; flex-shrink:0; margin-top:6px; }
+    .ctx-dot.red { background:var(--red); }
+    .ctx-dot.gold { background:var(--gold); }
 
-    /* DIAGNÓSTICO (O PROBLEMA DO RESPONDI) */
-    #diagnostico { padding: 90px 0; background: var(--bg2); }
-    .diag-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 40px; }
-    .diag-box {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 32px;
-      position: relative;
-    }
-    .diag-box.danger { border-color: rgba(255, 77, 77, 0.25); background: rgba(255, 77, 77, 0.02); }
-    .diag-box.success { border-color: rgba(232, 160, 32, 0.35); background: rgba(232, 160, 32, 0.025); }
-    .diag-title { font-size: 17px; font-weight: 700; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
-    .diag-flow { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-top: 20px; }
-    .diag-step {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      font-size: 13.5px;
-      color: #B8B8D0;
-      background: rgba(255,255,255,0.02);
-      padding: 10px 14px;
-      border-radius: 8px;
-      border: 1px solid rgba(255,255,255,0.04);
-    }
-    .diag-step-num {
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.08);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 11px;
-      font-weight: 700;
-      flex-shrink: 0;
-    }
-    .diag-step.warn .diag-step-num { background: rgba(255, 77, 77, 0.2); color: var(--red); }
-    .diag-step.ok .diag-step-num { background: var(--gold-dim); color: var(--gold); }
+    #diagnostico { padding:90px 0; }
+    .diag-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:40px; }
+    .diag-panel { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:30px; }
+    .diag-panel.danger { border-color:rgba(255,77,77,.25); background:rgba(255,30,30,.02); }
+    .diag-panel.safe { border-color:rgba(232,160,32,.35); background:rgba(232,160,32,.025); }
+    .diag-panel-title { font-size:15px; font-weight:700; margin-bottom:18px; }
+    .diag-panel-title.red { color:#FF7070; }
+    .diag-panel-title.gold { color:var(--gold); }
+    .step-list { list-style:none; display:flex; flex-direction:column; gap:11px; }
+    .step-item { display:flex; align-items:flex-start; gap:12px; font-size:13.5px; color:#B8B8D0; line-height:1.55; background:rgba(255,255,255,.02); padding:10px 13px; border-radius:9px; }
+    .step-num { width:22px; height:22px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700; flex-shrink:0; }
+    .step-num.red { background:rgba(255,77,77,.2); color:var(--red); }
+    .step-num.gold { background:var(--gold-dim); color:var(--gold); }
+    .step-risk { display:block; font-size:11.5px; color:var(--red); margin-top:3px; font-weight:600; }
 
-    /* ARQUITETURA / RECURSOS */
-    #arquitetura { padding: 95px 0; }
-    .feat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 22px; margin-top: 40px; }
-    .feat-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 28px;
-      transition: all .25s ease;
-    }
-    .feat-card:hover { background: var(--card-hov); border-color: rgba(255,255,255,.16); transform: translateY(-3px); }
-    .feat-icon-box {
-      width: 42px;
-      height: 42px;
-      background: var(--gold-dim);
-      border: 1px solid rgba(232,160,32,.22);
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 18px;
-      color: var(--gold);
-    }
-    .feat-icon-box svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-    .feat-title { font-size: 16.5px; font-weight: 600; margin-bottom: 8px; }
-    .feat-desc { font-size: 13.5px; color: var(--muted); line-height: 1.65; }
+    #produto { padding:90px 0; background:var(--bg2); }
+    .feat-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(310px,1fr)); gap:20px; margin-top:40px; }
+    .feat-card { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:28px; transition:all .25s; }
+    .feat-card:hover { background:var(--card-hov); border-color:rgba(255,255,255,.15); transform:translateY(-3px); }
+    .feat-icon { width:42px; height:42px; background:var(--gold-dim); border:1px solid rgba(232,160,32,.22); border-radius:10px; display:flex; align-items:center; justify-content:center; margin-bottom:18px; color:var(--gold); }
+    .feat-icon svg { width:20px; height:20px; stroke:currentColor; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+    .feat-title { font-size:16px; font-weight:600; margin-bottom:8px; }
+    .feat-desc { font-size:13.5px; color:var(--muted); line-height:1.65; }
 
-    /* MIGRAÇÃO */
-    #migracao { padding: 90px 0; background: var(--bg2); }
-    .mig-box {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-left: 3px solid var(--gold);
-      border-radius: var(--radius);
-      padding: 36px 40px;
-      margin-top: 32px;
-    }
-    .mig-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-top: 24px; }
-    .mig-item { display: flex; gap: 12px; font-size: 14px; color: #C4C4DC; }
-    .mig-check { color: var(--gold); font-weight: 700; flex-shrink: 0; }
+    #crescimento { padding:90px 0; }
+    .growth-box { background:var(--card); border:1px solid rgba(232,160,32,.3); border-left:3px solid var(--gold); border-radius:var(--radius); padding:36px 40px; margin-top:36px; }
+    .growth-stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:28px; margin-top:32px; padding-top:28px; border-top:1px solid var(--border); }
+    .growth-stat { text-align:center; }
+    .growth-num { font-family:'Playfair Display',serif; font-size:2.4rem; font-weight:700; color:var(--gold); line-height:1; }
+    .growth-label { font-size:13px; color:var(--muted); margin-top:6px; line-height:1.4; }
 
-    /* COMPARATIVO DE MERCADO */
-    #comparativo { padding: 95px 0; }
-    .comp-table-wrap {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow-x: auto;
-      margin-top: 36px;
-    }
-    table { width: 100%; border-collapse: collapse; text-align: left; }
-    th {
-      padding: 16px 22px;
-      font-size: 11.5px;
-      font-weight: 600;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      color: var(--muted);
-      border-bottom: 1px solid var(--border);
-      background: rgba(255,255,255,0.02);
-    }
-    td { padding: 16px 22px; font-size: 14px; border-bottom: 1px solid var(--border); }
-    tr:last-child td { border-bottom: none; }
-    tr.hl-row td { background: rgba(232,160,32,.04); }
-    tr.hl-row td:first-child { border-left: 3px solid var(--gold); }
-    .pill-status {
-      display: inline-block;
-      font-size: 10.5px;
-      font-weight: 700;
-      padding: 3px 9px;
-      border-radius: 100px;
-      letter-spacing: .05em;
-      text-transform: uppercase;
-    }
-    .st-green { background: rgba(0,200,100,.12); color: #00C864; border: 1px solid rgba(0,200,100,.22); }
-    .st-red { background: rgba(255,77,77,.12); color: var(--red); border: 1px solid rgba(255,77,77,.22); }
-    .st-gold { background: var(--gold-dim); color: var(--gold); border: 1px solid rgba(232,160,32,.3); }
+    #migracao { padding:90px 0; background:var(--bg2); }
+    .mig-steps { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:20px; margin-top:36px; }
+    .mig-step { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:26px; }
+    .mig-num { font-family:'Playfair Display',serif; font-size:2rem; font-weight:700; color:var(--gold); margin-bottom:12px; }
+    .mig-title { font-size:15px; font-weight:600; margin-bottom:8px; }
+    .mig-desc { font-size:13.5px; color:var(--muted); line-height:1.6; }
 
-    /* MODELOS DE CONTRATAÇÃO (PLANOS) */
-    #modelos { padding: 100px 0; background: var(--bg2); }
-    .modelos-hdr { text-align: center; margin-bottom: 18px; }
-    .modelos-intro { text-align: center; max-width: 640px; margin: 0 auto 50px; font-size: 15px; color: var(--muted); }
-    .modelos-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: stretch; }
-    .modelo-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 34px 26px;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: all .25s ease;
-    }
-    .modelo-card:hover { transform: translateY(-4px); }
-    .modelo-card.featured {
-      border-color: rgba(232,160,32,.45);
-      background: rgba(232,160,32,.035);
-      box-shadow: var(--glow-gold);
-    }
-    .modelo-badge { position: absolute; top: -13px; left: 50%; transform: translateX(-50%); white-space: nowrap; }
-    .modelo-type { font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
-    .modelo-price { font-family: 'Playfair Display', serif; font-size: 2.6rem; font-weight: 700; line-height: 1; margin-bottom: 6px; }
-    .modelo-price .currency { font-size: 1.3rem; font-weight: 400; color: var(--muted); vertical-align: top; margin-top: 4px; display: inline-block; }
-    .modelo-subprice { font-size: 13px; color: var(--muted); margin-bottom: 18px; }
-    .modelo-desc { font-size: 13.5px; color: #B6B6CE; line-height: 1.6; margin-bottom: 22px; padding-bottom: 18px; border-bottom: 1px solid var(--border); }
-    .modelo-items { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; flex-grow: 1; }
-    .modelo-items li { font-size: 13.5px; color: #B8B8D4; display: flex; align-items: flex-start; gap: 10px; }
-    .modelo-items li::before { content: '✓'; color: var(--gold); font-weight: 700; flex-shrink: 0; }
-    .modelo-items li.neg::before { content: '×'; color: #666680; font-size: 15px; }
-    .modelo-items li.neg { color: #6E6E88; }
-    
-    .btn-plan {
-      width: 100%;
-      padding: 13px;
-      font-size: 14.5px;
-      font-weight: 600;
-      border-radius: 10px;
-      border: none;
-      cursor: pointer;
-      text-decoration: none;
-      display: block;
-      text-align: center;
-      transition: all .25s;
-    }
-    .btn-plan-gold { background: linear-gradient(135deg, var(--gold), var(--gold2)); color: #0B0802; }
-    .btn-plan-gold:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(232,160,32,.35); }
-    .btn-plan-out { background: transparent; color: var(--white); border: 1px solid var(--border); }
-    .btn-plan-out:hover { background: var(--card-hov); border-color: rgba(255,255,255,0.25); }
+    #comparativo { padding:90px 0; }
+    .table-wrap { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); overflow-x:auto; margin-top:36px; }
+    table { width:100%; border-collapse:collapse; text-align:left; }
+    th { padding:15px 22px; font-size:11.5px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); border-bottom:1px solid var(--border); background:rgba(255,255,255,.02); }
+    td { padding:16px 22px; font-size:14px; border-bottom:1px solid var(--border); }
+    tr:last-child td { border-bottom:none; }
+    tr.hl td { background:rgba(232,160,32,.04); }
+    tr.hl td:first-child { border-left:3px solid var(--gold); }
+    .pill { display:inline-block; font-size:10.5px; font-weight:700; padding:3px 9px; border-radius:100px; letter-spacing:.05em; text-transform:uppercase; }
+    .p-green { background:rgba(0,200,100,.12); color:#00C864; border:1px solid rgba(0,200,100,.22); }
+    .p-red { background:rgba(255,77,77,.12); color:var(--red); border:1px solid rgba(255,77,77,.22); }
+    .p-gold { background:var(--gold-dim); color:var(--gold); border:1px solid rgba(232,160,32,.3); }
 
-    /* FAQ */
-    #faq { padding: 95px 0; }
-    .faq-list { max-width: 760px; margin: 36px auto 0; display: flex; flex-direction: column; gap: 10px; }
-    .faq-item { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
-    .faq-q { padding: 20px 26px; font-size: 15.5px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
-    .faq-q:hover { background: var(--card-hov); }
-    .faq-toggle { font-size: 18px; color: var(--gold); transition: transform .3s; font-weight: 400; }
-    .faq-item.open .faq-toggle { transform: rotate(45deg); }
-    .faq-ans { max-height: 0; overflow: hidden; transition: max-height .35s ease; }
-    .faq-item.open .faq-ans { max-height: 380px; }
-    .faq-ans-inner { padding: 18px 26px 22px; font-size: 14px; color: var(--muted); line-height: 1.7; border-top: 1px solid var(--border); }
+    #modelos { padding:95px 0; background:var(--bg2); }
+    .modelos-hdr { text-align:center; margin-bottom:14px; }
+    .modelos-sub { text-align:center; max-width:620px; margin:0 auto 48px; font-size:15px; color:var(--muted); line-height:1.7; }
+    .modelos-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; align-items:stretch; }
+    .modelo { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:32px 26px; position:relative; display:flex; flex-direction:column; transition:all .25s; }
+    .modelo:hover { transform:translateY(-4px); }
+    .modelo.featured { border-color:rgba(232,160,32,.45); background:rgba(232,160,32,.03); box-shadow:var(--glow-gold); }
+    .modelo-badge { position:absolute; top:-13px; left:50%; transform:translateX(-50%); white-space:nowrap; }
+    .modelo-type { font-size:11.5px; font-weight:700; letter-spacing:.09em; text-transform:uppercase; color:var(--muted); margin-bottom:14px; }
+    .modelo-price { font-family:'Playfair Display',serif; font-size:2.6rem; font-weight:700; line-height:1; margin-bottom:4px; }
+    .modelo-price .cur { font-size:1.3rem; font-weight:400; color:var(--muted); vertical-align:top; margin-top:5px; display:inline-block; }
+    .modelo-subprice { font-size:13px; color:var(--muted); margin-bottom:16px; }
+    .modelo-desc { font-size:13.5px; color:#B6B6CE; line-height:1.62; margin-bottom:20px; padding-bottom:18px; border-bottom:1px solid var(--border); }
+    .modelo-items { list-style:none; display:flex; flex-direction:column; gap:10px; margin-bottom:26px; flex-grow:1; }
+    .modelo-items li { font-size:13.5px; color:#BABACE; display:flex; align-items:flex-start; gap:10px; line-height:1.5; }
+    .modelo-items li::before { content:''; display:inline-block; width:5px; height:5px; border-radius:50%; background:var(--gold); flex-shrink:0; margin-top:6px; }
+    .modelo-items li.neg::before { background:#555570; }
+    .modelo-items li.neg { color:#606078; }
+    .btn-plan { width:100%; padding:13px; font-size:14.5px; font-weight:600; border-radius:10px; border:none; cursor:pointer; text-decoration:none; display:block; text-align:center; transition:all .25s; }
+    .bp-gold { background:linear-gradient(135deg,var(--gold),var(--gold2)); color:#0B0802; }
+    .bp-gold:hover { transform:translateY(-2px); box-shadow:0 6px 20px rgba(232,160,32,.35); }
+    .bp-out { background:transparent; color:var(--white); border:1px solid var(--border); }
+    .bp-out:hover { background:var(--card-hov); border-color:rgba(255,255,255,.22); }
 
-    /* CTA FINAL */
-    #contato { padding: 105px 0; text-align: center; position: relative; overflow: hidden; background: var(--bg2); }
-    .cta-inner { max-width: 660px; margin: 0 auto; position: relative; z-index: 1; }
-    .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 34px; }
-    .btn-wpp {
-      background: #1E8E49;
-      color: #fff;
-      padding: 15px 32px;
-      font-size: 15.5px;
-      font-weight: 600;
-      border-radius: 100px;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      transition: all .25s;
-    }
-    .btn-wpp:hover { background: #24A656; transform: translateY(-2px); box-shadow: 0 6px 24px rgba(30,142,73,.35); }
-    .btn-wpp svg { width: 18px; height: 18px; fill: currentColor; }
+    #faq { padding:90px 0; }
+    .faq-list { max-width:760px; margin:36px auto 0; display:flex; flex-direction:column; gap:10px; }
+    .faq-item { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; }
+    .faq-q { padding:20px 26px; font-size:15px; font-weight:600; cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:16px; transition:background .2s; }
+    .faq-q:hover { background:var(--card-hov); }
+    .faq-toggle { font-size:20px; color:var(--gold); font-weight:300; transition:transform .3s; flex-shrink:0; }
+    .faq-item.open .faq-toggle { transform:rotate(45deg); }
+    .faq-ans { max-height:0; overflow:hidden; transition:max-height .35s ease; }
+    .faq-item.open .faq-ans { max-height:400px; }
+    .faq-ans-inner { padding:18px 26px 24px; font-size:14px; color:var(--muted); line-height:1.72; border-top:1px solid var(--border); }
+    .faq-ans-inner strong { color:var(--white); }
 
-    footer { padding: 32px 0; border-top: 1px solid var(--border); text-align: center; font-size: 12.5px; color: var(--muted); }
-    footer strong { color: var(--white); }
+    #contato { padding:100px 0; background:var(--bg2); text-align:center; position:relative; overflow:hidden; }
+    .cta-glow { position:absolute; width:700px; height:700px; background:radial-gradient(circle,rgba(232,160,32,.09),transparent 65%); top:50%; left:50%; transform:translate(-50%,-50%); pointer-events:none; }
+    .cta-inner { max-width:660px; margin:0 auto; position:relative; z-index:1; }
+    .cta-btns { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-top:34px; }
+    .btn-wpp { background:#1E8E49; color:#fff; padding:15px 30px; font-size:15px; font-weight:600; border-radius:100px; text-decoration:none; display:inline-flex; align-items:center; gap:10px; transition:all .25s; }
+    .btn-wpp:hover { background:#23A354; transform:translateY(-2px); box-shadow:0 6px 24px rgba(30,142,73,.35); }
+    .btn-wpp svg { width:18px; height:18px; fill:currentColor; }
 
-    #progress { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, var(--gold), var(--gold2)); z-index: 9999; width: 0; }
+    footer { padding:30px 0; border-top:1px solid var(--border); text-align:center; font-size:12.5px; color:var(--muted); }
+    footer strong { color:var(--white); }
+    #progress { position:fixed; top:0; left:0; height:3px; background:linear-gradient(90deg,var(--gold),var(--gold2)); z-index:9999; width:0; }
 
-    @media(max-width:960px) {
-      .modelos-grid { grid-template-columns: 1fr; }
-      .diag-grid { grid-template-columns: 1fr; }
+    @media(max-width:920px){
+      .modelos-grid { grid-template-columns:1fr; }
+      .diag-grid { grid-template-columns:1fr; }
+      .contexto-grid { grid-template-columns:1fr; }
     }
   </style>
 </head>
 <body>
-
 <div id="progress"></div>
 
-<!-- NAV SEM LINK DIRETO PARA PLANOS -->
 <nav id="nav">
   <div class="container nav-inner">
     <a href="#hero" class="nav-logo">Pixel<span>Studio</span></a>
     <ul class="nav-links">
-      <li><a href="#diagnostico">Diagnóstico</a></li>
-      <li><a href="#arquitetura">Arquitetura</a></li>
-      <li><a href="#migracao">Migração</a></li>
+      <li><a href="#diagnostico">Diagnostico</a></li>
+      <li><a href="#produto">O Sistema</a></li>
+      <li><a href="#crescimento">Crescimento</a></li>
       <li><a href="#comparativo">Comparativo</a></li>
       <li><a href="#faq">Perguntas</a></li>
     </ul>
@@ -388,36 +212,39 @@
   </div>
 </nav>
 
-<!-- HERO -->
 <section id="hero">
   <div class="orb orb-1"></div>
   <div class="orb orb-2"></div>
   <div class="container">
     <div class="hero-content">
-      <div class="tag hero-tag fade-up">Documento Técnico e Estratégico | Confidencial</div>
+      <div class="tag hero-tag fade-up">Documento Tecnico e Estrategico | Confidencial | Setembro 2026</div>
       <h1 class="hero-title fade-up fd1">
         Leonardo,<br>
-        <span class="accent">sua operação de leads não deveria depender de intermediários.</span>
+        <span class="hero-accent">a Maquina de Visitas Diarias tem uma peca faltando.</span>
       </h1>
       <p class="hero-sub fade-up fd2">
-        Você já opera o Chat Legado com 9 lojas e mais de 25 mil leads no banco de dados. A transição para um motor próprio de formulários conversacionais fecha o circuito da sua esteira, elimina custos recorrentes de plataformas de terceiros e conecta cada resposta diretamente ao seu banco de dados.
+        Voce construiu um metodo que gerou mais de R$10 milhoes em vendas para lojistas de revestimentos e opera com 21 empresas ativas na sua plataforma. O topo do funil de todos eles ainda passa por um sistema de terceiro, com dados em servidor compartilhado e webhook sujeito a falhas silenciosas. Esta proposta fecha esse circuito.
       </p>
       <div class="hero-ctas fade-up fd3">
-        <a href="#diagnostico" class="btn btn-gold btn-lg">Entender a Arquitetura Unificada</a>
-        <a href="#comparativo" class="btn btn-outline btn-lg">Comparativo Operacional</a>
+        <a href="#diagnostico" class="btn btn-gold btn-lg">Ver o Diagnostico Completo</a>
+        <a href="#comparativo" class="btn btn-outline btn-lg">Analise de Custos</a>
       </div>
       <div class="hero-proof fade-up fd4">
         <div>
-          <div class="proof-val">R$<span>272k</span></div>
-          <div class="proof-lbl">em vendas gerenciadas<br>pelo CRM construído</div>
+          <div class="proof-val">R$<span>10M+</span></div>
+          <div class="proof-lbl">gerados em vendas<br>desde 2020</div>
+        </div>
+        <div>
+          <div class="proof-val"><span>21</span></div>
+          <div class="proof-lbl">empresas ativas<br>na plataforma Legado</div>
         </div>
         <div>
           <div class="proof-val"><span>25.200+</span></div>
-          <div class="proof-lbl">leads validados na base<br>das suas lojas</div>
+          <div class="proof-lbl">leads com nome real<br>no banco de dados</div>
         </div>
         <div>
-          <div class="proof-val"><span>9</span></div>
-          <div class="proof-lbl">operações ativas integradas<br>na mesma infraestrutura</div>
+          <div class="proof-val"><span>+47%</span></div>
+          <div class="proof-lbl">crescimento medio<br>obtido pelos clientes</div>
         </div>
       </div>
     </div>
@@ -426,69 +253,64 @@
 
 <div class="divider"></div>
 
-<!-- DIAGNÓSTICO (PILAR A: O GARGALO DO RESPONDI) -->
+<section id="contexto">
+  <div class="container">
+    <div class="tag fade-up">O Negocio da Legado Performance</div>
+    <h2 class="section-title fade-up fd1">Implementacao Comercial para o Setor de Revestimentos.<br><span class="gold">Voce nao vende software. Voce vende previsibilidade.</span></h2>
+    <p class="section-sub fade-up fd2">
+      A Legado Performance Digital implementa a Maquina de Visitas Diarias para lojistas de pisos vinilicos, laminados e revestimentos. O produto nao e consultoria e nao e curso. E execucao. Voce entra no negocio do cliente e transforma o WhatsApp em uma esteira previsivel de agendamentos e fechamentos.
+    </p>
+    <div class="contexto-grid">
+      <div class="ctx-box active fade-up">
+        <div class="ctx-label red">O Ponto de Dor dos seus Clientes</div>
+        <ul class="ctx-list">
+          <li class="ctx-item"><span class="ctx-dot red"></span>Semanas sem visita tecnica agendada, dependencia total do trafego organico.</li>
+          <li class="ctx-item"><span class="ctx-dot red"></span>Leads que somem apos o primeiro contato por falta de processo de follow-up.</li>
+          <li class="ctx-item"><span class="ctx-dot red"></span>WhatsApp desorganizado, sem registro de historico e sem funil estruturado.</li>
+          <li class="ctx-item"><span class="ctx-dot red"></span>Faturamento instavel que depende de sorte, nao de volume controlado de visitas.</li>
+        </ul>
+      </div>
+      <div class="ctx-box target fade-up fd1">
+        <div class="ctx-label gold">O que a Legado Performance Entrega</div>
+        <ul class="ctx-list">
+          <li class="ctx-item"><span class="ctx-dot gold"></span>Funil comercial estruturado com scripts e processo de qualificacao de leads.</li>
+          <li class="ctx-item"><span class="ctx-dot gold"></span>Sistema de CRM e atendimento via WhatsApp que centraliza toda a operacao.</li>
+          <li class="ctx-item"><span class="ctx-dot gold"></span>Remarketing automatizado para leads que pararam de responder.</li>
+          <li class="ctx-item"><span class="ctx-dot gold"></span>Agendamento previsivel de visitas tecnicas todos os dias, nao quando a sorte permite.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
 <section id="diagnostico">
   <div class="container">
-    <div class="tag fade-up">Diagnóstico de Infraestrutura</div>
-    <h2 class="section-title fade-up fd1">A diferença entre alugar um software genérico<br><span class="gold">e deter o motor da sua operação.</span></h2>
+    <div class="tag fade-up">Diagnostico Tecnico</div>
+    <h2 class="section-title fade-up fd1">Voce controla o funil do WhatsApp ao fechamento.<br><span class="gold">O topo do funil ainda depende de terceiro.</span></h2>
     <p class="section-sub fade-up fd2">
-      Entenda como a estrutura atual do Respondi cria riscos silenciosos na esteira de tráfego das suas lojas e como a integração nativa resolve o problema na raiz.
+      O Chat Legado garante CRM, atendimento, remarketing e agendamento de forma nativa. Mas o momento em que o lead preenche o formulario e entra na esteira ainda passa por uma plataforma de fora, criando um ponto cego na operacao de cada um dos seus 21 clientes.
     </p>
-
     <div class="diag-grid">
-      <!-- LADO ATUAL: FRAGILIZADO -->
-      <div class="diag-box danger fade-up">
-        <div class="diag-title" style="color: #FF7070;">
-          Estrutura Fragmentada (Cenário com Respondi)
-        </div>
-        <p style="font-size: 13.5px; color: var(--muted); line-height: 1.6;">
-          Um castelo de cartas com dependências externas. O lead percorre múltiplos intermediários até ser consolidado, pagando mensalidade perpétua por uma ferramenta engessada.
-        </p>
-        <ul class="diag-flow">
-          <li class="diag-step warn">
-            <span class="diag-step-num">1</span>
-            <span>O lead responde no formulário hospedado no servidor compartilhado do Respondi.</span>
-          </li>
-          <li class="diag-step warn">
-            <span class="diag-step-num">2</span>
-            <span>O Respondi envia um webhook externo com fila de requisições sujeita a instabilidades e limites de taxa.</span>
-          </li>
-          <li class="diag-step warn">
-            <span class="diag-step-num">3</span>
-            <span>Automações no n8n tentam processar a requisição. Se a conexão oscilar no domingo, o lead de alto valor evapora sem alerta.</span>
-          </li>
-          <li class="diag-step warn">
-            <span class="diag-step-num">4</span>
-            <span>Os dados históricos de clientes ficam retidos em servidores de terceiros, sujeitos a aumentos de preço a qualquer momento.</span>
-          </li>
+      <div class="diag-panel danger fade-up">
+        <div class="diag-panel-title red">Fluxo Atual com Plataforma Externa (Respondi)</div>
+        <p style="font-size:13.5px;color:var(--muted);line-height:1.6;margin-bottom:20px;">Para cada lojista implementado, o lead percorre um caminho fragmentado antes de chegar ao CRM.</p>
+        <ul class="step-list">
+          <li class="step-item"><span class="step-num red">1</span><span>Lead clica no anuncio e preenche formulario hospedado no servidor do Respondi, fora do controle da Legado.</span></li>
+          <li class="step-item"><span class="step-num red">2</span><span>Respondi dispara webhook externo para o n8n com fila sujeita a instabilidades e limites de taxa de requisicao.<span class="step-risk">Risco real: falha silenciosa em dia de campanha.</span></span></li>
+          <li class="step-item"><span class="step-num red">3</span><span>N8N processa e registra o lead no Supabase do Chat Legado com delay variavel, podendo perder o timing quente do contato inicial.</span></li>
+          <li class="step-item"><span class="step-num red">4</span><span>Dados historicos de leads ficam retidos no servidor do Respondi, vinculados a uma assinatura mensal que pode ser reajustada ou encerrada a qualquer momento.</span></li>
         </ul>
       </div>
-
-      <!-- LADO NOVO: UNIFICADO -->
-      <div class="diag-box success fade-up fd1">
-        <div class="diag-title" style="color: var(--gold);">
-          Estrutura Nativa Unificada (Motor Legado)
-        </div>
-        <p style="font-size: 13.5px; color: var(--muted); line-height: 1.6;">
-          Circuito fechado e proprietário. O formulário conversa diretamente com o mesmo PostgreSQL e Supabase que já sustentam o Chat Legado.
-        </p>
-        <ul class="diag-flow">
-          <li class="diag-step ok">
-            <span class="diag-step-num">1</span>
-            <span>O lead responde no seu domínio próprio, sob sua marca, com experiência fluida e sem logotipo de terceiros.</span>
-          </li>
-          <li class="diag-step ok">
-            <span class="diag-step-num">2</span>
-            <span>Gravação direta no banco de dados Supabase do Chat Legado. Zero dependência de webhooks frágeis de intermediários.</span>
-          </li>
-          <li class="diag-step ok">
-            <span class="diag-step-num">3</span>
-            <span>Disparo instantâneo de rotinas e WhatsApp para os atendentes das 9 lojas, sem filas externas de processamento.</span>
-          </li>
-          <li class="diag-step ok">
-            <span class="diag-step-num">4</span>
-            <span>Propriedade total dos dados e do motor, sem taxas mensais por lead coletado ou licenças de software externas.</span>
-          </li>
+      <div class="diag-panel safe fade-up fd1">
+        <div class="diag-panel-title gold">Fluxo com Motor Nativo Legado</div>
+        <p style="font-size:13.5px;color:var(--muted);line-height:1.6;margin-bottom:20px;">O formulario conversa diretamente com o mesmo banco PostgreSQL que sustenta o Chat Legado. Circuito fechado e proprietario.</p>
+        <ul class="step-list">
+          <li class="step-item"><span class="step-num gold">1</span><span>Lead preenche o formulario em dominio proprio do lojista, com identidade visual da empresa e sem creditos de terceiros.</span></li>
+          <li class="step-item"><span class="step-num gold">2</span><span>Gravacao direta no Supabase do Chat Legado em milissegundos. Zero webhooks externos, zero dependencias de APIs de terceiros.</span></li>
+          <li class="step-item"><span class="step-num gold">3</span><span>Disparo imediato de notificacao para o atendente via WhatsApp, com todos os dados do lead disponiveis no CRM em tempo real.</span></li>
+          <li class="step-item"><span class="step-num gold">4</span><span>Propriedade total dos dados do lojista. Nenhuma informacao de cliente fica em servidor de outra empresa.</span></li>
         </ul>
       </div>
     </div>
@@ -497,62 +319,43 @@
 
 <div class="divider"></div>
 
-<!-- ARQUITETURA E RECURSOS (PILAR B: SOB MEDIDA) -->
-<section id="arquitetura">
+<section id="produto">
   <div class="container">
-    <div class="tag fade-up">Engenharia Sob Medida</div>
-    <h2 class="section-title fade-up fd1">Recursos construídos especificamente<br><span class="gold">para o modelo comercial das suas 9 marcas.</span></h2>
+    <div class="tag fade-up">O Motor de Captura</div>
+    <h2 class="section-title fade-up fd1">Construido especificamente para o metodo<br><span class="gold">da Maquina de Visitas Diarias.</span></h2>
     <p class="section-sub fade-up fd2">
-      Diferente de plataformas públicas onde você aguarda em filas de suporte para sugerir melhorias, aqui as regras de negócio atendem diretamente a esteira das suas lojas.
+      Diferente de plataformas genericas onde voce aguarda em fila de suporte para pedir ajustes, as regras de captacao e qualificacao sao desenvolvidas diretamente para o processo comercial do setor de revestimentos.
     </p>
-
     <div class="feat-grid">
       <div class="feat-card fade-up">
-        <div class="feat-icon-box">
-          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-        </div>
-        <div class="feat-title">Interface Conversacional Otimizada</div>
-        <div class="feat-desc">Fluxo de uma pergunta por vez, com suporte a teclado rápido e resposta natural no mobile. Conversão validada muito superior a páginas de contato convencionais.</div>
+        <div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></div>
+        <div class="feat-title">Fluxo Conversacional de Qualificacao</div>
+        <div class="feat-desc">Uma pergunta por vez, guiando o lead pelo processo de pre-qualificacao antes de ele entrar no funil. Taxa de conclusao muito superior a paginas de formulario convencionais.</div>
       </div>
-
       <div class="feat-card fade-up fd1">
-        <div class="feat-icon-box">
-          <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
-        </div>
-        <div class="feat-title">Lógica Condicional e Ramificações</div>
-        <div class="feat-desc">Direcionamento dinâmico conforme as respostas. Se o cliente procura orçamento premium, o funil encaminha para o fluxo correspondente sem etapas desnecessárias.</div>
+        <div class="feat-icon"><svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg></div>
+        <div class="feat-title">Ramificacao por Tipo de Interesse</div>
+        <div class="feat-desc">Se o cliente procura piso vinilico, segue um fluxo. Se procura revestimento para obra, segue outro. Leads entram no CRM ja segmentados, sem triagem manual da equipe.</div>
       </div>
-
       <div class="feat-card fade-up fd2">
-        <div class="feat-icon-box">
-          <svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
-        </div>
-        <div class="feat-title">Sincronização Nativa com Supabase</div>
-        <div class="feat-desc">Leads caem no mesmo repositório do CRM Legado em milissegundos. Atualização imediata do histórico de conversas e perfil de cada cliente.</div>
+        <div class="feat-icon"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg></div>
+        <div class="feat-title">Gravacao Nativa no Supabase Legado</div>
+        <div class="feat-desc">Cada resposta vai direto para o banco do Chat Legado. O lead ja aparece no CRM e na fila de atendimento sem qualquer processamento intermediario.</div>
       </div>
-
       <div class="feat-card fade-up fd3">
-        <div class="feat-icon-box">
-          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
-        </div>
-        <div class="feat-title">Painel de Métricas e Análise de Abandono</div>
-        <div class="feat-desc">Rastreamento da taxa de conclusão e identificação precisa das perguntas com maior taxa de evasão, permitindo ajustes imediatos nas campanhas.</div>
+        <div class="feat-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg></div>
+        <div class="feat-title">Painel de Conversao por Cliente</div>
+        <div class="feat-desc">Metricas individuais por lojista: taxa de conclusao do formulario, volume de leads por dia, identificacao das perguntas com maior taxa de abandono.</div>
       </div>
-
       <div class="feat-card fade-up fd1">
-        <div class="feat-icon-box">
-          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-        </div>
-        <div class="feat-title">Marca Própria em Domínio Dedicado</div>
-        <div class="feat-desc">Identidade visual completa das suas empresas, com certificado SSL próprio, fontes personalizadas e total ausência de créditos de terceiros.</div>
+        <div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div>
+        <div class="feat-title">Identidade Visual Independente por Marca</div>
+        <div class="feat-desc">Cada lojista tem o formulario com a propria logo, cores e dominio. O lead nunca ve o nome de uma plataforma de terceiro durante o processo de preenchimento.</div>
       </div>
-
       <div class="feat-card fade-up fd2">
-        <div class="feat-icon-box">
-          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-        </div>
-        <div class="feat-title">Gestão Multi-Marca Centralizada</div>
-        <div class="feat-desc">Estrutura preparada para gerenciar as 9 marcas com formulários independentes e visões separadas, sem misturar orçamentos de empresas distintas.</div>
+        <div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div>
+        <div class="feat-title">Gestao Centralizada para Todos os Clientes</div>
+        <div class="feat-desc">Voce gerencia os formularios de todas as empresas da Legado em um painel unico, sem precisar entrar em sistemas separados para cada lojista que implementou.</div>
       </div>
     </div>
   </div>
@@ -560,94 +363,75 @@
 
 <div class="divider"></div>
 
-<!-- MIGRAÇÃO -->
+<section id="crescimento">
+  <div class="container">
+    <div class="tag fade-up">Potencial de Escala</div>
+    <h2 class="section-title fade-up fd1">Voce tem 21 clientes ativos hoje.<br><span class="gold">O mercado de revestimentos tem dezenas de milhares de lojistas.</span></h2>
+    <p class="section-sub fade-up fd2">
+      Cada novo lojista que voce onboarda na Legado Performance precisa de topo de funil funcionando. Com um formulario proprietario integrado ao Chat Legado, esse componente deixa de ser custo operacional terceirizado e passa a ser parte do produto que voce vende.
+    </p>
+    <div class="growth-box fade-up">
+      <h3 style="font-size:18px;font-weight:700;margin-bottom:12px;">O que muda na sua proposta de valor ao cliente</h3>
+      <p style="font-size:14px;color:var(--muted);line-height:1.72;">
+        Hoje, ao implementar um lojista, voce entrega CRM, atendimento e automacoes via Chat Legado. O topo do funil fica por conta de uma ferramenta externa. Com o Motor de Captura nativo, voce entrega o ciclo completo: da captura do lead no anuncio ao agendamento da visita tecnica, dentro de uma unica infraestrutura sob seu controle. Esse diferencial tem valor direto na retencao e na expansao da sua base de clientes.
+      </p>
+      <div class="growth-stats">
+        <div class="growth-stat">
+          <div class="growth-num">21</div>
+          <div class="growth-label">empresas ativas agora, cada uma com formularios que poderiam ser proprietarios</div>
+        </div>
+        <div class="growth-stat">
+          <div class="growth-num">+47%</div>
+          <div class="growth-label">crescimento medio obtido pelos seus clientes com o metodo Legado</div>
+        </div>
+        <div class="growth-stat">
+          <div class="growth-num">100%</div>
+          <div class="growth-label">do ciclo de vendas sob controle, da captura ao fechamento da visita</div>
+        </div>
+        <div class="growth-stat">
+          <div class="growth-num">Zero</div>
+          <div class="growth-label">dependencias externas no fluxo de entrada de leads de cada cliente</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
 <section id="migracao">
   <div class="container">
-    <div class="tag fade-up">Transição Sem Atrito</div>
-    <h2 class="section-title fade-up fd1">Migração Completa dos seus Dados do Respondi<br><span class="gold">com garantia de operação contínua.</span></h2>
+    <div class="tag fade-up">Transicao Sem Friccao</div>
+    <h2 class="section-title fade-up fd1">Migracao completa dos formularios e leads<br><span class="gold">sem interromper a operacao dos seus clientes.</span></h2>
     <p class="section-sub fade-up fd2">
-      O maior obstáculo de qualquer mudança de plataforma é o tempo e o risco operacional. Por isso, toda a transição é executada por mim, sem você ou sua equipe precisarem redigitar nada.
+      Toda a virada tecnica ocorre em ambiente paralelo. Os anuncios dos seus lojistas continuam gerando leads durante a transicao. Nenhum dia de campanha e perdido.
     </p>
-
-    <div class="mig-box fade-up">
-      <h3 style="font-size: 18px; margin-bottom: 8px;">O que está coberto no processo de migração:</h3>
-      <p style="font-size: 14px; color: var(--muted); line-height: 1.6;">
-        Toda a virada técnica acontece em ambiente paralelo. Suas campanhas continuam ativas no ar durante cada etapa do processo.
-      </p>
-
-      <div class="mig-list">
-        <div class="mig-item">
-          <span class="mig-check">✓</span>
-          <span>Mapeamento e recriação idêntica de todos os formulários ativos no Respondi.</span>
-        </div>
-        <div class="mig-item">
-          <span class="mig-check">✓</span>
-          <span>Extração, tratamento e importação de toda a base histórica de leads coletados.</span>
-        </div>
-        <div class="mig-item">
-          <span class="mig-check">✓</span>
-          <span>Vinculação direta com as tabelas do Chat Legado já existentes no Supabase.</span>
-        </div>
-        <div class="mig-item">
-          <span class="mig-check">✓</span>
-          <span>Testes práticos de ponta a ponta com simulação de envios e disparos de WhatsApp.</span>
-        </div>
-      </div>
+    <div class="mig-steps">
+      <div class="mig-step fade-up"><div class="mig-num">01</div><div class="mig-title">Mapeamento e Recreacao</div><div class="mig-desc">Todos os formularios ativos no Respondi sao mapeados e recriados no Motor Legado com os mesmos campos, logica e fluxo de qualificacao.</div></div>
+      <div class="mig-step fade-up fd1"><div class="mig-num">02</div><div class="mig-title">Importacao do Historico</div><div class="mig-desc">A base historica de leads de cada cliente e extraida, tratada e importada diretamente nas tabelas do Supabase do Chat Legado.</div></div>
+      <div class="mig-step fade-up fd2"><div class="mig-num">03</div><div class="mig-title">Teste de Ponta a Ponta</div><div class="mig-desc">Simulacoes reais de preenchimento, disparo de notificacao no WhatsApp do atendente e verificacao de dados no CRM antes de qualquer virada de link.</div></div>
+      <div class="mig-step fade-up fd3"><div class="mig-num">04</div><div class="mig-title">Virada dos Links</div><div class="mig-desc">Substituicao dos links nos anuncios e paginas dos lojistas de forma coordenada. A operacao do Respondi so e desativada apos confirmacao de estabilidade total.</div></div>
     </div>
   </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- COMPARATIVO DE MERCADO -->
 <section id="comparativo">
   <div class="container">
-    <div class="tag fade-up">Transparência de Custos</div>
-    <h2 class="section-title fade-up fd1">Análise comparativa de custos<br><span class="gold">no cenário de desenvolvimento e SaaS.</span></h2>
-    <p class="section-sub fade-up fd2">
-      Uma visão objetiva dos custos praticados no mercado para que você avalie o retorno sobre o investimento desta proposta.
-    </p>
-
-    <div class="comp-table-wrap fade-up">
+    <div class="tag fade-up">Analise de Custos</div>
+    <h2 class="section-title fade-up fd1">Referencias de mercado para<br><span class="gold">a sua tomada de decisao.</span></h2>
+    <p class="section-sub fade-up fd2">Uma visao objetiva do que custa desenvolver ou contratar uma solucao equivalente no mercado, para que os valores desta proposta sejam avaliados com o contexto correto.</p>
+    <div class="table-wrap fade-up">
       <table>
         <thead>
-          <tr>
-            <th>Opção de Fornecimento</th>
-            <th>Modelo de Cobrança</th>
-            <th>Custo Estimado (24 meses)</th>
-            <th>Posse do Sistema</th>
-            <th>Integração Chat Legado</th>
-          </tr>
+          <tr><th>Alternativa</th><th>Modelo</th><th>Custo (24 meses)</th><th>Propriedade</th><th>Integra Chat Legado</th></tr>
         </thead>
         <tbody>
-          <tr>
-            <td><strong>Respondi.app (SaaS Comercial)</strong></td>
-            <td>Assinatura mensal recorrente</td>
-            <td>R$ 4.700 a R$ 11.900</td>
-            <td><span class="pill-status st-red">Nenhuma</span></td>
-            <td>Indireta (via Webhook)</td>
-          </tr>
-          <tr>
-            <td><strong>Desenvolvimento em Software House</strong></td>
-            <td>Projeto sob encomenda (MVP)</td>
-            <td>R$ 25.000 a R$ 45.000</td>
-            <td><span class="pill-status st-green">Total</span></td>
-            <td>Exige integração do zero</td>
-          </tr>
-          <tr>
-            <td><strong>Desenvolvimento Freelancer Sênior</strong></td>
-            <td>Horas técnicas de desenvolvimento</td>
-            <td>R$ 14.000 a R$ 22.000</td>
-            <td><span class="pill-status st-green">Total</span></td>
-            <td>Curva de aprendizado da base</td>
-          </tr>
-          <tr class="hl-row">
-            <td><strong>Proposta Pixel Studio (Nativa)</strong></td>
-            <td>Investimento único de implantação</td>
-            <td style="color: var(--gold); font-weight: 700;">A partir de R$ 5.800</td>
-            <td><span class="pill-status st-gold">Vitalício / Código</span></td>
-            <td><span class="pill-status st-gold">Nativa no Supabase</span></td>
-          </tr>
+          <tr><td><strong>Respondi.app</strong></td><td>Assinatura recorrente</td><td>R$ 4.700 a R$ 11.900</td><td><span class="pill p-red">Nenhuma</span></td><td>Via webhook externo</td></tr>
+          <tr><td><strong>Software House Nacional</strong></td><td>Desenvolvimento MVP</td><td>R$ 25.000 a R$ 45.000</td><td><span class="pill p-green">Total</span></td><td>Exige integracao do zero</td></tr>
+          <tr><td><strong>Freelancer Senior</strong></td><td>Horas de desenvolvimento</td><td>R$ 14.000 a R$ 22.000</td><td><span class="pill p-green">Total</span></td><td>Curva de aprendizado da base</td></tr>
+          <tr class="hl"><td><strong>Motor Nativo Pixel Studio</strong></td><td>Investimento unico</td><td style="color:var(--gold);font-weight:700;">A partir de R$ 5.800</td><td><span class="pill p-gold">Vitalicio</span></td><td><span class="pill p-gold">Nativo no Supabase</span></td></tr>
         </tbody>
       </table>
     </div>
@@ -656,154 +440,96 @@
 
 <div class="divider"></div>
 
-<!-- MODELOS DE CONTRATAÇÃO -->
 <section id="modelos">
   <div class="container">
     <div class="modelos-hdr">
-      <div class="tag fade-up">Formatos de Implementação</div>
-      <h2 class="section-title fade-up fd1">Modelos estruturados para a sua decisão.</h2>
+      <div class="tag fade-up">Formatos de Contratacao</div>
+      <h2 class="section-title fade-up fd1">Tres formas de estruturar a implementacao.</h2>
     </div>
-    <p class="modelos-intro fade-up">
-      Opções desenhadas considerando a realidade técnica do ecossistema Legado, com alternativa focada na operação das 9 marcas ou na detenção do código para exploração comercial.
-    </p>
-
+    <p class="modelos-sub fade-up">Os modelos abaixo foram desenhados considerando o estagio atual da Legado Performance e o objetivo de encerrar dependencias externas no fluxo de captacao dos seus clientes.</p>
     <div class="modelos-grid">
-
-      <!-- OPÇÃO 1: LICENÇA VITALÍCIA OPERACIONAL (FOCO PRINCIPAL) -->
-      <div class="modelo-card featured fade-up">
-        <div class="modelo-badge"><span class="tag">Recomendado para a Operação</span></div>
-        <div>
-          <div class="modelo-type">Licença Operacional Vitalícia</div>
-          <div class="modelo-price">
-            <span class="currency">R$</span>5.800
-          </div>
-          <div class="modelo-subprice">pagamento único (ou 2x de R$ 2.900)</div>
-          <div class="modelo-desc">
-            A solução definitiva para as suas 9 lojas. Você encerra os custos mensais do Respondi, ganha integração nativa com o Chat Legado e tem migração completa inclusa.
-          </div>
-          <ul class="modelo-items">
-            <li>Uso vitalício para todas as 9 marcas atuais e futuras</li>
-            <li>Zero mensalidades de plataforma no futuro</li>
-            <li>Integração nativa direta com o banco Supabase do Chat Legado</li>
-            <li>Migração completa de 100% dos formulários e leads do Respondi</li>
-            <li>Instalação e configuração em infraestrutura dedicada</li>
-            <li>6 meses de garantia técnica e suporte operacional direto comigo</li>
-            <li class="neg">Direito de revenda como SaaS público não incluso</li>
-          </ul>
-        </div>
-        <a href="https://wa.me/5511913393797?text=Julio%2C%20quero%20avancar%20com%20a%20Licenca%20Operacional%20Vitalicia%20de%205800." class="btn-plan btn-plan-gold" target="_blank">Avançar com a Licença Vitalícia</a>
+      <div class="modelo featured fade-up">
+        <div class="modelo-badge"><span class="tag">Recomendado</span></div>
+        <div class="modelo-type">Licenca Operacional Vitalicia</div>
+        <div class="modelo-price"><span class="cur">R$</span>5.800</div>
+        <div class="modelo-subprice">pagamento unico ou 2x de R$ 2.900</div>
+        <div class="modelo-desc">Encerra definitivamente o custo do Respondi e centraliza toda a esteira sob controle da Legado Performance. Migracao de todos os formularios e leads incluida no valor.</div>
+        <ul class="modelo-items">
+          <li>Uso vitalicio para todos os clientes atuais e futuros da Legado</li>
+          <li>Integracao nativa direta com o banco Supabase do Chat Legado</li>
+          <li>Migracao completa de formularios e historico de leads do Respondi</li>
+          <li>Zero mensalidades de plataforma apos a implementacao</li>
+          <li>Instalacao, configuracao e homologacao em infraestrutura dedicada</li>
+          <li>6 meses de garantia tecnica e suporte direto</li>
+          <li class="neg">Direito de licenciar o codigo para terceiros nao incluso</li>
+        </ul>
+        <a href="https://wa.me/5511913393797?text=Julio%2C%20quero%20avancar%20com%20a%20Licenca%20Operacional%20Vitalicia." class="btn-plan bp-gold" target="_blank">Avancar com a Licenca Vitalicia</a>
       </div>
-
-      <!-- OPÇÃO 2: PROPRIEDADE INTELECTUAL E CÓDIGO FONTE -->
-      <div class="modelo-card fade-up fd1">
-        <div>
-          <div class="modelo-type">Propriedade Intelectual Comercial</div>
-          <div style="font-size: 13px; text-decoration: line-through; color: var(--muted); margin-bottom: 2px;">R$ 14.000 (tabela de mercado)</div>
-          <div class="modelo-price" style="color: #FFB740;">
-            <span class="currency" style="color: var(--gold);">R$</span>9.800
-          </div>
-          <div class="modelo-subprice">50% de sinal e 50% na homologação final</div>
-          <div class="modelo-desc">
-            O ativo de software se torna propriedade da sua empresa. Indicado caso você queira deter o repositório, hospedar onde preferir e revender assinaturas para terceiros.
-          </div>
-          <ul class="modelo-items">
-            <li>Código-fonte integral entregue em repositório Git privado</li>
-            <li>Cessão total de direitos patrimoniais do software</li>
-            <li>Liberdade para comercializar, licenciar ou revender como SaaS</li>
-            <li>Documentação técnica de arquitetura e implantação</li>
-            <li>Migração de todos os dados do Respondi inclusa no projeto</li>
-            <li>Deploy inicial e homologação em servidor da sua escolha</li>
-            <li>3 meses de suporte pós-entrega do repositório</li>
-          </ul>
-        </div>
-        <a href="https://wa.me/5511913393797?text=Julio%2C%20tenho%20interesse%20na%20Propriedade%20Intelectual%20com%20codigo-fonte." class="btn-plan btn-plan-out" target="_blank">Optar pelo Código Comercial</a>
+      <div class="modelo fade-up fd1">
+        <div class="modelo-type">Propriedade Intelectual Comercial</div>
+        <div style="font-size:12.5px;text-decoration:line-through;color:var(--muted);margin-bottom:2px;">Tabela de mercado: R$ 14.000</div>
+        <div class="modelo-price" style="color:#FFB740;"><span class="cur" style="color:var(--gold);">R$</span>9.800</div>
+        <div class="modelo-subprice">50% de entrada e 50% na entrega do repositorio</div>
+        <div class="modelo-desc">O codigo-fonte passa a ser ativo da Legado Performance Digital. Indicado se o objetivo for licenciar o sistema para outros operadores ou integradores do setor.</div>
+        <ul class="modelo-items">
+          <li>Codigo-fonte completo entregue em repositorio Git privado</li>
+          <li>Cessao total de direitos patrimoniais do software</li>
+          <li>Liberdade para licenciar, revender ou adaptar o sistema</li>
+          <li>Documentacao tecnica de arquitetura e implantacao</li>
+          <li>Migracao completa de todos os dados do Respondi inclusa</li>
+          <li>Deploy inicial e homologacao em servidor de sua escolha</li>
+          <li>3 meses de suporte tecnico pos-entrega</li>
+        </ul>
+        <a href="https://wa.me/5511913393797?text=Julio%2C%20tenho%20interesse%20na%20opcao%20com%20codigo-fonte%20comercial." class="btn-plan bp-out" target="_blank">Optar pelo Codigo Comercial</a>
       </div>
-
-      <!-- OPÇÃO 3: ACESSO MENSAL OPERACIONAL -->
-      <div class="modelo-card fade-up fd2">
-        <div>
-          <div class="modelo-type">Operação Assistida Mensal</div>
-          <div class="modelo-price">
-            <span class="currency">R$</span>450<span style="font-size: 1rem; color: var(--muted); font-weight: 400;">/mês</span>
-          </div>
-          <div class="modelo-subprice">+ R$ 1.800 de setup e migração inicial</div>
-          <div class="modelo-desc">
-            Modelo de serviço continuado em que eu assumo a hospedagem e a manutenção recorrente de novos formulários sob demanda para a sua operação.
-          </div>
-          <ul class="modelo-items">
-            <li>Instância dedicada e hospedagem sob responsabilidade da Pixel Studio</li>
-            <li>Criação e atualização de novos formulários conforme a demanda</li>
-            <li>Monitoramento contínuo de conversão e estabilidade</li>
-            <li>Integração direta com o Chat Legado mantida ativa</li>
-            <li>Migração inicial de formulários e base de dados inclusa no setup</li>
-            <li>Cancelamento a qualquer momento com aviso de 30 dias</li>
-            <li class="neg">Sem detenção de código ou licença perpétua</li>
-          </ul>
-        </div>
-        <a href="https://wa.me/5511913393797?text=Julio%2C%20prefiro%20o%20modelo%20de%20Operacao%20Assistida%20Mensal." class="btn-plan btn-plan-out" target="_blank">Optar pela Operação Mensal</a>
+      <div class="modelo fade-up fd2">
+        <div class="modelo-type">Operacao Assistida Mensal</div>
+        <div class="modelo-price"><span class="cur">R$</span>450<span style="font-size:1rem;color:var(--muted);font-weight:400;">/mes</span></div>
+        <div class="modelo-subprice">mais R$ 1.800 de setup e migracao inicial</div>
+        <div class="modelo-desc">Modelo de servico continuado com hospedagem e manutencao sob responsabilidade da Pixel Studio. Valido se a preferencia for nao assumir infraestrutura propria agora.</div>
+        <ul class="modelo-items">
+          <li>Instancia dedicada com hospedagem gerenciada pela Pixel Studio</li>
+          <li>Criacao e atualizacao de formularios sob demanda</li>
+          <li>Integracao continua com o Chat Legado mantida ativa</li>
+          <li>Monitoramento de estabilidade e conversao</li>
+          <li>Migracao inicial de formularios e base de dados inclusa no setup</li>
+          <li>Cancelamento com aviso de 30 dias, sem penalidade</li>
+          <li class="neg">Sem detencao de codigo ou licenca vitalicia</li>
+        </ul>
+        <a href="https://wa.me/5511913393797?text=Julio%2C%20prefiro%20o%20modelo%20de%20operacao%20mensal%20assistida." class="btn-plan bp-out" target="_blank">Optar pela Operacao Mensal</a>
       </div>
-
     </div>
   </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- FAQ -->
 <section id="faq">
   <div class="container">
-    <div style="text-align: center;">
-      <div class="tag fade-up">Esclarecimentos Técnicos</div>
-      <h2 class="section-title fade-up fd1">Perguntas frequentes sobre a implementação.</h2>
+    <div style="text-align:center;">
+      <div class="tag fade-up">Esclarecimentos</div>
+      <h2 class="section-title fade-up fd1">Perguntas sobre a implementacao.</h2>
     </div>
-
     <div class="faq-list">
       <div class="faq-item fade-up">
-        <div class="faq-q">
-          <span>Como funciona a migração dos meus formulários e dados do Respondi?</span>
-          <span class="faq-toggle">+</span>
-        </div>
-        <div class="faq-ans">
-          <div class="faq-ans-inner">
-            Todo o histórico de leads antigos é exportado e tratado para garantir compatibilidade com as tabelas do Chat Legado no Supabase. Os formulários ativos são recriados na nova plataforma com os mesmos campos e regras lógicas. Os links são substituídos de forma orquestrada para que suas campanhas de anúncios não tenham interrupção.
-          </div>
-        </div>
+        <div class="faq-q"><span>Como a migracao dos formularios do Respondi funciona na pratica?</span><span class="faq-toggle">+</span></div>
+        <div class="faq-ans"><div class="faq-ans-inner">Os formularios ativos sao mapeados e recriados com os mesmos campos e logica condicional. Os leads historicos sao exportados, tratados e importados diretamente nas tabelas do Supabase do Chat Legado. A virada dos links nos anuncios so acontece apos confirmacao de estabilidade do novo ambiente, sem nenhum dia de campanha perdido.</div></div>
       </div>
-
       <div class="faq-item fade-up">
-        <div class="faq-q">
-          <span>Por que é solicitado 50% de sinal no modelo de código comercial?</span>
-          <span class="faq-toggle">+</span>
-        </div>
-        <div class="faq-ans">
-          <div class="faq-ans-inner">
-            O desenvolvimento de software sob demanda exige alocação exclusiva de horas de engenharia e estruturação de ambiente. O sinal formaliza o cronograma de entrega e protege ambas as partes, vinculando a segunda parcela apenas à entrega do repositório homologado e em produção.
-          </div>
-        </div>
+        <div class="faq-q"><span>Qual a diferenca pratica entre a Licenca Vitalicia e o Codigo Comercial?</span><span class="faq-toggle">+</span></div>
+        <div class="faq-ans"><div class="faq-ans-inner">Na <strong>Licenca Vitalicia (R$ 5.800)</strong>, o sistema fica instalado e operando para todos os clientes da Legado Performance sem nenhum custo futuro, mas permanece como ferramenta interna. No <strong>Codigo Comercial (R$ 9.800)</strong>, a propriedade intelectual passa para a Legado Performance Digital, com direito de licenciar ou revender o sistema para terceiros fora do escopo da implementacao comercial.</div></div>
       </div>
-
       <div class="faq-item fade-up">
-        <div class="faq-q">
-          <span>Qual é a diferença entre a Licença Vitalícia e o Código Comercial?</span>
-          <span class="faq-toggle">+</span>
-        </div>
-        <div class="faq-ans">
-          <div class="faq-ans-inner">
-            Na <strong>Licença Operacional Vitalícia (R$ 5.800)</strong>, o sistema fica instalado e disponível para uso contínuo em todas as marcas das suas lojas, sem qualquer mensalidade futura, mas a plataforma opera como um produto dedicado às suas empresas. No <strong>Código Comercial (R$ 9.800)</strong>, você adquire a propriedade intelectual da base de código, podendo revendê-la a clientes terceiros ou empacotá-la como um produto SaaS de mercado.
-          </div>
-        </div>
+        <div class="faq-q"><span>Por que 50% de entrada no modelo de codigo comercial?</span><span class="faq-toggle">+</span></div>
+        <div class="faq-ans"><div class="faq-ans-inner">O desenvolvimento sob cessao de propriedade intelectual exige alocacao exclusiva de horas de engenharia e estruturacao de ambiente de entrega. O sinal de 50% formaliza o cronograma e garante que a segunda parcela so seja devida apos entrega do repositorio homologado e em producao.</div></div>
       </div>
-
       <div class="faq-item fade-up">
-        <div class="faq-q">
-          <span>Como o sistema se comporta sob alto tráfego de campanhas?</span>
-          <span class="faq-toggle">+</span>
-        </div>
-        <div class="faq-ans">
-          <div class="faq-ans-inner">
-            A aplicação é construída com arquitetura leve e estática no frontend, com conexões otimizadas diretamente ao banco de dados PostgreSQL do Supabase. Essa mesma arquitetura já demonstrou estabilidade ao sustentar os milhares de acessos e leads do Chat Legado durante períodos promocionais.
-          </div>
-        </div>
+        <div class="faq-q"><span>O sistema suporta o volume de leads de campanhas em escala?</span><span class="faq-toggle">+</span></div>
+        <div class="faq-ans"><div class="faq-ans-inner">A aplicacao utiliza arquitetura leve no frontend com conexao otimizada diretamente ao PostgreSQL do Supabase, a mesma estrutura que ja sustentou os picos de mais de 25.000 leads registrados no Chat Legado. Escala com a infraestrutura do Supabase sem custo adicional de engenharia.</div></div>
+      </div>
+      <div class="faq-item fade-up">
+        <div class="faq-q"><span>E possivel customizar os formularios para cada lojista implementado?</span><span class="faq-toggle">+</span></div>
+        <div class="faq-ans"><div class="faq-ans-inner">Sim. Cada cliente da Legado Performance tem seu proprio formulario com identidade visual independente, dominio proprio e fluxo de perguntas especifico para o produto e o processo comercial da empresa. Nenhum lojista enxerga dados de outro no painel.</div></div>
       </div>
     </div>
   </div>
@@ -811,22 +537,19 @@
 
 <div class="divider"></div>
 
-<!-- CONTATO FINAL -->
 <section id="contato">
+  <div class="cta-glow"></div>
   <div class="container">
     <div class="cta-inner">
-      <div class="tag fade-up" style="margin-bottom: 20px;">Próximo Passo</div>
-      <h2 class="section-title fade-up fd1">Vamos estruturar o cronograma de implantação.</h2>
-      <p class="section-sub fade-up fd2" style="margin: 0 auto;">
-        Definido o modelo que melhor atende suas metas para as lojas, alinhamos os acessos necessários e damos início imediato à preparação da infraestrutura e migração dos formulários.
-      </p>
-
+      <div class="tag fade-up" style="margin-bottom:20px;">Proximo Passo</div>
+      <h2 class="section-title fade-up fd1">Definido o modelo, o cronograma de implementacao comeca imediatamente.</h2>
+      <p class="section-sub fade-up fd2" style="margin:16px auto 0;">Com os acessos necessarios ao repositorio e ao Supabase, a primeira fase de mapeamento e ambiente paralelo pode ser iniciada na mesma semana.</p>
       <div class="cta-btns fade-up fd3">
-        <a href="https://wa.me/5511913393797?text=Julio%2C%20analisei%20a%20proposta%20e%20quero%20conversar%20sobre%20o%20fechamento." class="btn-wpp" target="_blank">
-          <svg viewBox="0 0 24 24"><path d="M12.031 2c-5.511 0-9.989 4.478-9.989 9.989 0 1.761.459 3.479 1.331 4.991l-1.373 5.02 5.15-1.352c1.46.797 3.109 1.217 4.881 1.217 5.511 0 9.989-4.478 9.989-9.989 0-5.511-4.478-9.989-9.989-9.989zm0 18.254c-1.547 0-3.06-.416-4.377-1.203l-.314-.187-3.252.853.868-3.17-.205-.327c-.865-1.378-1.32-2.981-1.32-4.631 0-4.704 3.826-8.53 8.53-8.53 4.704 0 8.53 3.826 8.53 8.53 0 4.704-3.826 8.53-8.53 8.53zm4.673-6.388c-.256-.128-1.516-.748-1.751-.833-.235-.085-.406-.128-.577.128-.171.256-.662.833-.812 1.004-.15.171-.3.192-.556.064-.256-.128-1.082-.399-2.061-1.272-.763-.68-1.278-1.52-1.428-1.776-.15-.256-.016-.394.112-.522.115-.115.256-.3.385-.449.128-.15.171-.256.256-.427.085-.171.043-.32-.021-.449-.064-.128-.577-1.389-.791-1.902-.208-.501-.419-.433-.577-.441l-.491-.009c-.171 0-.449.064-.684.32-.235.256-.897.876-.897 2.136 0 1.26.919 2.478 1.047 2.649.128.171 1.808 2.761 4.38 3.873.612.264 1.09.422 1.462.54.615.196 1.175.168 1.617.102.493-.074 1.516-.62 1.73-1.218.214-.598.214-1.111.15-1.218-.064-.107-.235-.171-.491-.299z"></path></svg>
+        <a href="https://wa.me/5511913393797?text=Julio%2C%20analisei%20a%20proposta%20e%20quero%20alinhar%20o%20fechamento." class="btn-wpp" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M12.031 2c-5.511 0-9.989 4.478-9.989 9.989 0 1.761.459 3.479 1.331 4.991l-1.373 5.02 5.15-1.352c1.46.797 3.109 1.217 4.881 1.217 5.511 0 9.989-4.478 9.989-9.989 0-5.511-4.478-9.989-9.989-9.989zm0 18.254c-1.547 0-3.06-.416-4.377-1.203l-.314-.187-3.252.853.868-3.17-.205-.327c-.865-1.378-1.32-2.981-1.32-4.631 0-4.704 3.826-8.53 8.53-8.53 4.704 0 8.53 3.826 8.53 8.53 0 4.704-3.826 8.53-8.53 8.53zm4.673-6.388c-.256-.128-1.516-.748-1.751-.833-.235-.085-.406-.128-.577.128-.171.256-.662.833-.812 1.004-.15.171-.3.192-.556.064-.256-.128-1.082-.399-2.061-1.272-.763-.68-1.278-1.52-1.428-1.776-.15-.256-.016-.394.112-.522.115-.115.256-.3.385-.449.128-.15.171-.256.256-.427.085-.171.043-.32-.021-.449-.064-.128-.577-1.389-.791-1.902-.208-.501-.419-.433-.577-.441l-.491-.009c-.171 0-.449.064-.684.32-.235.256-.897.876-.897 2.136 0 1.26.919 2.478 1.047 2.649.128.171 1.808 2.761 4.38 3.873.612.264 1.09.422 1.462.54.615.196 1.175.168 1.617.102.493-.074 1.516-.62 1.73-1.218.214-.598.214-1.111.15-1.218-.064-.107-.235-.171-.491-.299z"/></svg>
           Iniciar alinhamento via WhatsApp
         </a>
-        <a href="mailto:contato@pixelstudio.com" class="btn btn-outline btn-xl">Enviar mensagem por e-mail</a>
+        <a href="mailto:contato@pixelstudio.com" class="btn btn-outline btn-xl">Enviar por e-mail</a>
       </div>
     </div>
   </div>
@@ -834,36 +557,22 @@
 
 <footer>
   <div class="container">
-    <p>Documento confidencial elaborado por <strong>Julio · Pixel Studio</strong> para Leonardo. Todos os direitos reservados.</p>
-    <p style="margin-top: 6px; font-size: 11px; opacity: .55;">As especificações e estimativas apresentadas destinam-se exclusivamente à análise de viabilidade técnica e comercial.</p>
+    <p>Documento confidencial elaborado por <strong>Julio · Pixel Studio</strong> para Leonardo Chagas · Legado Performance Digital.</p>
+    <p style="margin-top:6px;font-size:11px;opacity:.5;">As estimativas apresentadas destinam-se exclusivamente a analise de viabilidade tecnica e comercial. LEGADO MIDIA LTDA · CNPJ 14.689.880/0001-60.</p>
   </div>
 </footer>
 
 <script>
-  // Intersection Observer para animações sutis
   const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if(e.isIntersecting){
-        e.target.classList.add('visible');
-        obs.unobserve(e.target);
-      }
-    });
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } });
   }, { threshold: 0.1 });
   document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
-
-  // Barra de progresso de leitura
   window.addEventListener('scroll', () => {
     const st = document.documentElement.scrollTop;
     const dh = document.documentElement.scrollHeight - window.innerHeight;
     document.getElementById('progress').style.width = (st / dh * 100) + '%';
-  });
-
-  // Efeito na barra de navegação ao rolar
-  window.addEventListener('scroll', () => {
     document.getElementById('nav').style.boxShadow = window.scrollY > 50 ? '0 4px 30px rgba(0,0,0,.6)' : 'none';
   });
-
-  // Accordion do FAQ
   document.querySelectorAll('.faq-q').forEach(q => {
     q.addEventListener('click', () => {
       const item = q.parentElement;
@@ -872,15 +581,10 @@
       if(!isOpen) item.classList.add('open');
     });
   });
-
-  // Scroll suave dos links internos
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
       const t = document.querySelector(a.getAttribute('href'));
-      if(t){
-        e.preventDefault();
-        window.scrollTo({ top: t.offsetTop - 75, behavior: 'smooth' });
-      }
+      if(t){ e.preventDefault(); window.scrollTo({ top: t.offsetTop - 74, behavior: 'smooth' }); }
     });
   });
 </script>
