@@ -1,6 +1,6 @@
 # In-Legado-proposta
 
-Landing page de proposta comercial exclusiva para Leonardo — Plataforma de Formulários Conversacionais desenvolvida pela Pixel Studio.
+Landing page de proposta comercial exclusiva para Leonardo, cobrindo a plataforma de formulários conversacionais desenvolvida pela Pixel Studio.
 
 ## Contato Configurado
 
